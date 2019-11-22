@@ -1,4 +1,4 @@
-org\projet6\site\webapp\SitesServlet.class
-org\projet6\site\webapp\HelloServlet.class
-org\projet6\site\webapp\SignInServlet.class
-org\projet6\site\webapp\LoginServlet.class
+org\projet6\escalade\webapp\SitesServlet.class
+org\projet6\escalade\webapp\SignInServlet.class
+org\projet6\escalade\webapp\HelloServlet.class
+org\projet6\escalade\webapp\LoginServlet.class

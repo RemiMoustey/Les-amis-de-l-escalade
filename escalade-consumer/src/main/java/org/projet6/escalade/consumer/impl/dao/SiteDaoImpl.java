@@ -19,6 +19,8 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     private static final class SiteMapper implements RowMapper<Site> {
         public Site mapRow(ResultSet pRS, int pRowNum) throws SQLException {
             Site vSite = new Site(pRS.getInt("id"));
+            vSite.setName(pRS.getString("name"));
+            vSite.setDescription(pRS.getString("description"));
             vSite.setSectors(pRS.getString("sectors"));
             vSite.setNumberOfSectors(pRS.getInt("number_of_sectors"));
             vSite.setLength(pRS.getInt("length"));
@@ -26,6 +28,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
             vSite.setGrade(pRS.getString("grade"));
             vSite.setWay(pRS.getString("way"));
             vSite.setOfficial(pRS.getBoolean("is_official"));
+            System.out.println(vSite.getName());
             return vSite;
         }
     }
