@@ -1,4 +1,19 @@
+.content {
+    margin-top: 101px;
+}
+
+label[for="search"] {
+    font-weight: bold;
+}
+
+.form-search {
+    width: 250px;
+    margin: auto;
+    text-align: center;
+}
+
 .list-sites td {
+    vertical-align: middle;
     text-align: right;
 }
 
@@ -10,4 +25,13 @@
 {
     color: #F00;
     font-weight: bold;
+}
+
+@media all and (max-width: 991px) {
+    .fixed-top {
+        position: static;
+    }
+    .content {
+        margin-top: 0px;
+    }
 }

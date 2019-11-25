@@ -6,7 +6,7 @@
 
   <servlet>
     <servlet-name>Hello</servlet-name>
-    <servlet-class>org.projet6.escalade.webapp.HelloServlet</servlet-class>
+    <servlet-class>org.projet6.escalade.webapp.servlets.HelloServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Hello</servlet-name>
@@ -15,7 +15,7 @@
 
   <servlet>
     <servlet-name>Sites</servlet-name>
-    <servlet-class>org.projet6.escalade.webapp.SitesServlet</servlet-class>
+    <servlet-class>org.projet6.escalade.webapp.servlets.SitesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Sites</servlet-name>
@@ -23,8 +23,17 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>Results</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ResultsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Results</servlet-name>
+    <url-pattern>/results</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>Login</servlet-name>
-    <servlet-class>org.projet6.escalade.webapp.LoginServlet</servlet-class>
+    <servlet-class>org.projet6.escalade.webapp.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
@@ -33,11 +42,20 @@
 
   <servlet>
     <servlet-name>Signin</servlet-name>
-    <servlet-class>org.projet6.escalade.webapp.SignInServlet</servlet-class>
+    <servlet-class>org.projet6.escalade.webapp.servlets.SignInServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Signin</servlet-name>
     <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ValidationInscription</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ValidationInscriptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidationInscription</servlet-name>
+    <url-pattern>/validation_inscription</url-pattern>
   </servlet-mapping>
 
   <jsp-config>

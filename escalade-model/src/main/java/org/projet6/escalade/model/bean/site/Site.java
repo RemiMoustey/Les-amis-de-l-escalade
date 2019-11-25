@@ -13,7 +13,7 @@ public class Site {
     private Integer length;
     private String place;
     private String grade;
-    private String way;
+    private String numberOfWays;
     private Boolean isOfficial;
 
     // ==================== Constructors ====================
@@ -57,8 +57,8 @@ public class Site {
         return grade;
     }
 
-    public String getWay() {
-        return way;
+    public String getNumberOfWays() {
+        return numberOfWays;
     }
 
     public Boolean getOfficial() {
@@ -97,8 +97,8 @@ public class Site {
         this.grade = grade;
     }
 
-    public void setWay(String way) {
-        this.way = way;
+    public void setNumberOfWays(String numberOfWays) {
+        this.numberOfWays = numberOfWays;
     }
 
     public void setOfficial(Boolean official) {

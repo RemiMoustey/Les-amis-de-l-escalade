@@ -1,4 +1,7 @@
-C:\Users\qwdg\Desktop\Travail\OpenClassrooms\developpeur_dapplication_java\Projets\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\LoginServlet.java
-C:\Users\qwdg\Desktop\Travail\OpenClassrooms\developpeur_dapplication_java\Projets\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\SitesServlet.java
-C:\Users\qwdg\Desktop\Travail\OpenClassrooms\developpeur_dapplication_java\Projets\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\HelloServlet.java
-C:\Users\qwdg\Desktop\Travail\OpenClassrooms\developpeur_dapplication_java\Projets\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\SignInServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\LoginServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SitesServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\HelloServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ResultsServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\sites\PrintSites.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SignInServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.java

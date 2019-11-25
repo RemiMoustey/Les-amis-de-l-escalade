@@ -1,4 +1,7 @@
-org\projet6\escalade\webapp\SitesServlet.class
-org\projet6\escalade\webapp\SignInServlet.class
-org\projet6\escalade\webapp\HelloServlet.class
-org\projet6\escalade\webapp\LoginServlet.class
+org\projet6\escalade\webapp\servlets\ResultsServlet.class
+org\projet6\escalade\webapp\servlets\SitesServlet.class
+org\projet6\escalade\webapp\servlets\LoginServlet.class
+org\projet6\escalade\webapp\sites\PrintSites.class
+org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.class
+org\projet6\escalade\webapp\servlets\HelloServlet.class
+org\projet6\escalade\webapp\servlets\SignInServlet.class

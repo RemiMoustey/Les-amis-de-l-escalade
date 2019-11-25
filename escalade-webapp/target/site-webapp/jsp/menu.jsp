@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
     <ul class="navbar-nav d-flex align-items-center m-auto">
         <li class=nav-item>
             <a class="navbar-brand" href="#">

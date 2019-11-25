@@ -1,4 +1,4 @@
-package org.projet6.escalade.webapp;
+package org.projet6.escalade.webapp.servlets;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
