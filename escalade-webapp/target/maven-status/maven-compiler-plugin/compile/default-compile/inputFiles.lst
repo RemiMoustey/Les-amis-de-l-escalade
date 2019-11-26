@@ -1,7 +1,10 @@
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\LoginServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\members\ConnectedMember.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SitesServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\HelloServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ValidationConnectionServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ResultsServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\sites\PrintSites.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\members\RegisterMember.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SignInServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.java

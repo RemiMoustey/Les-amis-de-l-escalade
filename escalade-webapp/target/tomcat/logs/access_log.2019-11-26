@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [26/Nov/2019:16:59:35 +0100] "GET /login HTTP/1.1" 200 1803 http-bio-8080-exec-1 537
+0:0:0:0:0:0:0:1 - - [26/Nov/2019:16:59:41 +0100] "POST /validation_connection HTTP/1.1" 200 1385 http-bio-8080-exec-3 720

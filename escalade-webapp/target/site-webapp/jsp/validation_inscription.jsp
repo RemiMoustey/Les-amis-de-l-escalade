@@ -15,7 +15,7 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
                 Votre inscription a bien été validée !
             </div>
         </div>

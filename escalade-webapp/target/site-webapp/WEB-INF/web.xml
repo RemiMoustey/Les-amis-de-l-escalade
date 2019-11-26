@@ -58,6 +58,15 @@
     <url-pattern>/validation_inscription</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ValidationConnection</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ValidationConnectionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidationConnection</servlet-name>
+    <url-pattern>/validation_connection</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

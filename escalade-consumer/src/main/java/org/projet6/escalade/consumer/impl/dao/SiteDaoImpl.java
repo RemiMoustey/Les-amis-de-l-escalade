@@ -17,7 +17,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
     }
 
     public List<Site> getListSearchedSites(String search, String field) {
-        String vSQL = "SELECT * FROM site" + " WHERE " + field + " LIKE '%" + search + "%'";
+        String vSQL = "SELECT * FROM site WHERE " + field + " LIKE '%" + search + "%'";
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new SiteMapper());
     }

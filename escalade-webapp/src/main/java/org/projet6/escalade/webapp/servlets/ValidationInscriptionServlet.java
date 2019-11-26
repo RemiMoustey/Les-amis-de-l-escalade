@@ -1,6 +1,6 @@
 package org.projet6.escalade.webapp.servlets;
 
-import org.projet6.escalade.webapp.sites.PrintSites;
+import org.projet6.escalade.webapp.members.RegisterMember;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +20,8 @@ public class ValidationInscriptionServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RegisterMember newMember = new RegisterMember();
+        newMember.registerNewMember(request);
 
         this.getServletContext().getRequestDispatcher("/jsp/validation_inscription.jsp").forward(request, response);
     }
