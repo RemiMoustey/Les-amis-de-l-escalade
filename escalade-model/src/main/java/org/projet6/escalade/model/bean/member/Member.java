@@ -4,7 +4,6 @@ public class Member {
     private Integer id;
     private String login;
     private String password;
-    private boolean isConnected;
     private String email;
     private String phoneNumber;
     private String address;
@@ -29,10 +28,6 @@ public class Member {
 
     public String getPassword() {
         return password;
-    }
-
-    public boolean isConnected() {
-        return isConnected;
     }
 
     public String getEmail() {
@@ -65,10 +60,6 @@ public class Member {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public void setConnected(boolean connected) {
-        isConnected = connected;
     }
 
     public void setEmail(String email) {

@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:02 +0100] "GET /sites HTTP/1.1" 200 29971 http-bio-8080-exec-3 1290
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:04 +0100] "GET /login HTTP/1.1" 200 1882 http-bio-8080-exec-5 67
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:09 +0100] "POST /validation_connection HTTP/1.1" 200 1385 http-bio-8080-exec-6 58
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:11 +0100] "GET /sites HTTP/1.1" 200 30075 http-bio-8080-exec-7 95
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:12 +0100] "GET /add_site HTTP/1.1" 200 4381 http-bio-8080-exec-9 65
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:52:31 +0100] "POST /insert_site HTTP/1.1" 500 5179 http-bio-8080-exec-10 175
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:53:08 +0100] "POST /insert_site HTTP/1.1" 200 1463 http-bio-8080-exec-3 142
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:53:08 +0100] "GET /css/style.css HTTP/1.1" 304 - http-bio-8080-exec-3 6
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:53:36 +0100] "GET /sites HTTP/1.1" 200 33163 http-bio-8080-exec-3 88
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:54:09 +0100] "GET /one_site?site=Arudy HTTP/1.1" 200 4390 http-bio-8080-exec-3 141
+0:0:0:0:0:0:0:1 - - [27/Nov/2019:11:54:50 +0100] "GET /one_site?site=Arudy HTTP/1.1" 200 4445 http-bio-8080-exec-3 187

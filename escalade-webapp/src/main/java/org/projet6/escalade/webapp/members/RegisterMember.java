@@ -14,7 +14,6 @@ public class RegisterMember {
         Member newMember = new Member();
         newMember.setLogin(request.getParameter("login"));
         newMember.setPassword(request.getParameter("password"));
-        newMember.setConnected(false);
         newMember.setEmail(request.getParameter("email"));
         newMember.setPhoneNumber(request.getParameter("phoneNumber"));
         newMember.setAddress(request.getParameter("address"));

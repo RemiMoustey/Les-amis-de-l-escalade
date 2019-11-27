@@ -41,6 +41,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>Signin</servlet-name>
     <servlet-class>org.projet6.escalade.webapp.servlets.SignInServlet</servlet-class>
   </servlet>
@@ -65,6 +74,33 @@
   <servlet-mapping>
     <servlet-name>ValidationConnection</servlet-name>
     <url-pattern>/validation_connection</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OneSite</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.OneSiteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OneSite</servlet-name>
+    <url-pattern>/one_site</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddSite</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.AddSiteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddSite</servlet-name>
+    <url-pattern>/add_site</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InsertSite</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.InsertSiteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertSite</servlet-name>
+    <url-pattern>/insert_site</url-pattern>
   </servlet-mapping>
 
   <jsp-config>

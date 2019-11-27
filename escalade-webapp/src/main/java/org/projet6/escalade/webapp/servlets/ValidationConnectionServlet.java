@@ -1,8 +1,5 @@
 package org.projet6.escalade.webapp.servlets;
 
-import org.projet6.escalade.webapp.members.ConnectedMember;
-import org.projet6.escalade.webapp.members.RegisterMember;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,8 +20,6 @@ public class ValidationConnectionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("login", request.getParameter("login"));
         request.setAttribute("password", request.getParameter("password"));
-        ConnectedMember connectedMember = new ConnectedMember();
-        connectedMember.connectMember(request);
 
         HttpSession session = request.getSession();
         session.setAttribute("login", request.getAttribute("login"));

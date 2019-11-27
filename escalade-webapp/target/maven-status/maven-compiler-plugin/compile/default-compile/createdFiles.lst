@@ -1,10 +1,14 @@
 org\projet6\escalade\webapp\servlets\ResultsServlet.class
 org\projet6\escalade\webapp\servlets\SitesServlet.class
+org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.class
+org\projet6\escalade\webapp\servlets\HelloServlet.class
+org\projet6\escalade\webapp\servlets\OneSiteServlet.class
 org\projet6\escalade\webapp\members\RegisterMember.class
 org\projet6\escalade\webapp\servlets\LoginServlet.class
 org\projet6\escalade\webapp\sites\PrintSites.class
-org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.class
+org\projet6\escalade\webapp\servlets\LogoutServlet.class
+org\projet6\escalade\webapp\servlets\AddSiteServlet.class
 org\projet6\escalade\webapp\servlets\ValidationConnectionServlet.class
-org\projet6\escalade\webapp\members\ConnectedMember.class
-org\projet6\escalade\webapp\servlets\HelloServlet.class
+org\projet6\escalade\webapp\servlets\InsertSiteServlet.class
 org\projet6\escalade\webapp\servlets\SignInServlet.class
+org\projet6\escalade\webapp\sites\RegisterSite.class

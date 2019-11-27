@@ -19,6 +19,9 @@
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
             <h1 class="text-center mt-3">Les sites d'escalade</h1>
+            <c:if test="${!empty sessionScope.login}">
+                <p class="text-center"><a href="/add_site">Ajouter un site</a></p>
+            </c:if>
             <form method="post" action="/results" class="form-search">
                 <label for="search">Rechercher un site</label>
                 <input type="text" name="search" id="search" />
@@ -45,68 +48,71 @@
                 <c:if test="${count % 3 == 0}">
                     <div class="container d-flex flex-column flex-lg-row align-content-around">
                 </c:if>
-                <table class="list-sites table m-3">
-                    <tr>
-                        <th scope="col">
-                            Nom
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getName()}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Secteurs
-                        </th>
-                        <td scope="col">
-                            <ul>
-                                <c:forTokens var="sector" items="${allSites[i].getSectors()}" delims=",">
-                                    <li>${sector}</li>
-                                </c:forTokens>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Nombre de secteurs
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getNumberOfSectors()}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Hauteur
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getLength()}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Lieu
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getPlace()}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Cotation
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getGrade()}" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col">
-                            Nombre de voies
-                        </th>
-                        <td scope="col">
-                            <c:out value="${allSites[i].getNumberOfWays()}" />
-                        </td>
-                    </tr>
-                </table>
+                <div class="column-table-link">
+                    <table class="list-sites table">
+                        <tr>
+                            <th scope="col">
+                                Nom
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getName()}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Secteurs
+                            </th>
+                            <td scope="col">
+                                <ul>
+                                    <c:forTokens var="sector" items="${allSites[i].getSectors()}" delims=",">
+                                        <li>${sector}</li>
+                                    </c:forTokens>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Nombre de secteurs
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getNumberOfSectors()}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Hauteur
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getLength()}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Lieu
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getPlace()}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Cotation
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getGrade()}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">
+                                Nombre de voies
+                            </th>
+                            <td scope="col">
+                                <c:out value="${allSites[i].getNumberOfWays()}" />
+                            </td>
+                        </tr>
+                    </table>
+                    <p><a href="/one_site?site=${allSites[i].getName()}">En savoir plus</a></p>
+                </div>
                 <c:set var="count" value="${count + 1}" />
                 <c:if test="${count % 3 == 0}" >
                     </div>

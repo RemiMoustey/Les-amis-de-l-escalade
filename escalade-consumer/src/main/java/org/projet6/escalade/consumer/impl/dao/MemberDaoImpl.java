@@ -3,18 +3,15 @@ package org.projet6.escalade.consumer.impl.dao;
 import org.apache.logging.log4j.Logger;
 import org.projet6.escalade.consumer.contract.dao.MemberDao;
 import org.projet6.escalade.model.bean.member.Member;
-import org.projet6.escalade.model.bean.site.Site;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.annotation.ManagedBean;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.List;
 
 @ManagedBean
 public class MemberDaoImpl extends AbstractDaoImpl implements MemberDao {
@@ -42,20 +39,11 @@ public class MemberDaoImpl extends AbstractDaoImpl implements MemberDao {
         }
     }
 
-    public List<Member> getConnectedMember(String login, String password) {
-        String vSQL = "SELECT * FROM member WHERE login = '" + login + "' AND password = '" + password + "'";
-
-        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-
-        return vJdbcTemplate.query(vSQL, new MemberMapper());
-    }
-
     private static final class MemberMapper implements RowMapper<Member> {
         public Member mapRow(ResultSet pRS, int pRowNum) throws SQLException {
             Member vMember = new Member(pRS.getInt("id"));
             vMember.setLogin(pRS.getString("login"));
             vMember.setPassword(pRS.getString("password"));
-            vMember.setConnected(pRS.getBoolean("isConnected"));
             vMember.setEmail(pRS.getString("email"));
             vMember.setPhoneNumber(pRS.getString("phoneNumber"));
 
@@ -63,13 +51,4 @@ public class MemberDaoImpl extends AbstractDaoImpl implements MemberDao {
         }
     }
 
-    public void connectMember(Member pMember) {
-        String vSQL = "UPDATE member SET isConnected = true WHERE id = :id";
-
-        MapSqlParameterSource vParams = new MapSqlParameterSource().addValue("id", pMember.getId());
-
-        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-
-        vJdbcTemplate.update(vSQL, vParams);
-    }
 }

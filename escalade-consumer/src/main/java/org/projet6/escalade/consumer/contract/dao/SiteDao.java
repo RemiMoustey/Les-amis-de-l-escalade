@@ -7,4 +7,6 @@ import java.util.List;
 public interface SiteDao {
     public List<Site> getListSites();
     public List<Site> getListSearchedSites(String search, String field);
+    public Site getSearchedSite(String nameSite);
+    public void insertSite(Site pSite);
 }

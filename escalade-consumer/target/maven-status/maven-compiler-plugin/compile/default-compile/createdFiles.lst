@@ -1,5 +1,4 @@
 org\projet6\escalade\consumer\contract\dao\SiteDao.class
-org\projet6\escalade\consumer\impl\dao\MemberDaoImpl$1.class
 org\projet6\escalade\consumer\impl\dao\MemberDaoImpl$MemberMapper.class
 org\projet6\escalade\consumer\impl\dao\SiteDaoImpl.class
 org\projet6\escalade\consumer\contract\dao\MemberDao.class

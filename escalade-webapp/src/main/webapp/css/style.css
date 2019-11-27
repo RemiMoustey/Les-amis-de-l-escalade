@@ -12,12 +12,12 @@ label[for="search"] {
     text-align: center;
 }
 
-.list-sites td {
+.list-sites td, .site-table td {
     vertical-align: middle;
     text-align: right;
 }
 
-.list-sites li {
+.list-sites li, .site-table li {
     list-style: none;
 }
 
@@ -26,6 +26,13 @@ label[for="search"] {
     color: #F00;
     font-weight: bold;
 }
+
+.column-table-link {
+    flex-direction: column;
+    margin: 20px;
+}
+
+
 
 @media all and (max-width: 991px) {
     .fixed-top {

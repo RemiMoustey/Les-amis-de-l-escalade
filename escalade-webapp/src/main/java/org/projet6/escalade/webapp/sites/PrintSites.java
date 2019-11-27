@@ -37,4 +37,10 @@ public class PrintSites {
         request.setAttribute("sites", sites);
     }
 
+    public void getOneSite(HttpServletRequest request) {
+        ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        SiteDao siteDao = (SiteDao) vApplicationContext.getBean("siteDao");
+        Site site =  siteDao.getSearchedSite(request.getParameter("site"));
+        request.setAttribute("site", site);
+    }
 }

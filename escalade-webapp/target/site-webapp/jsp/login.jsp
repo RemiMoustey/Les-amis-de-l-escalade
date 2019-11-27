@@ -15,14 +15,16 @@
     </head>
     <body>
         <%@ include file="menu.jsp" %>
-        <h1 class="text-center">Connexion</h1>
+        <div class="content">
+            <h1 class="text-center">Connexion</h1>
 
-        <form method="post" action="/validation_connection" class="w-50 m-auto">
-            <label for="login">Login : </label>
-            <input type="text" name="login" id="login" class="form-control" required />
-            <label for="password" class="mt-1">Mot de passe : </label>
-            <input type="password" name="password" id="password" class="form-control" required />
-            <button type="submit" class="mt-3">Se connecter</button>
-        </form>
+            <form method="post" action="/validation_connection" class="w-50 m-auto">
+                <label for="login">Login : </label>
+                <input type="text" name="login" id="login" class="form-control" required />
+                <label for="password" class="mt-1">Mot de passe : </label>
+                <input type="password" name="password" id="password" class="form-control" required />
+                <button type="submit" class="mt-3">Se connecter</button>
+            </form>
+        </div>
     </body>
 </html>
