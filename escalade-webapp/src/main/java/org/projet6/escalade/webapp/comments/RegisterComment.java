@@ -11,12 +11,18 @@ import javax.servlet.http.HttpSession;
 public class RegisterComment {
     public void registerNewComment(HttpServletRequest request) {
         ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
-        CommentDao commentDAO = (CommentDao) vApplicationContext.getBean("commentDao");
+        CommentDao commentDao = (CommentDao) vApplicationContext.getBean("commentDao");
         Comment newComment = new Comment();
         newComment.setAuthor(request.getParameter("author"));
         newComment.setComment(request.getParameter("comment"));
         HttpSession session = request.getSession();
         newComment.setSiteId(Integer.parseInt((String) session.getAttribute("siteId")));
-        commentDAO.insertComment(newComment);
+        commentDao.insertComment(newComment);
+    }
+
+    public void changeComment(int id, String author, String comment) {
+        ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        CommentDao commentDao = (CommentDao) vApplicationContext.getBean("commentDao");
+        commentDao.updateComment(id, author, comment);
     }
 }

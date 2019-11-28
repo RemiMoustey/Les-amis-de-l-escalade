@@ -65,7 +65,7 @@
                             <td scope="col">
                                 <ul>
                                     <c:forTokens var="sector" items="${allSites[i].getSectors()}" delims=",">
-                                        <li>${sector}</li>
+                                        <li><c:out value="${sector}" /></li>
                                     </c:forTokens>
                                 </ul>
                             </td>

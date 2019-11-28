@@ -130,6 +130,33 @@
     <url-pattern>/make_unofficial</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>ModifyComment</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ModifyCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyComment</servlet-name>
+    <url-pattern>/modify_comment</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UpdateComment</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.UpdateCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateComment</servlet-name>
+    <url-pattern>/update_comment</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeleteComment</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.DeleteCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteComment</servlet-name>
+    <url-pattern>/delete_comment</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

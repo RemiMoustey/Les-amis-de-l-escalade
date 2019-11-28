@@ -15,8 +15,18 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
-            <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
-                Le site d'escalade n'est désormais plus officiel !
+            <h1>Modifier un commentaire</h1>
+
+            <div class="form-comment w-75 m-auto">
+                <form action="/update_comment?id=${site.getId()}" method="post" >
+                    <label for="author">Auteur<span class="input-required">*</span></label>
+                    <br/>
+                    <input type="text" name="author" id="author" class="for-control mb-3" value="${comment.getAuthor()}" required />
+                    <br />
+                    <label for="author">Commentaire<span class="input-required">*</span></label>
+                    <textarea name="comment" id="comment" class="form-control">${comment.getComment()}</textarea>
+                    <button type="submit" class="mt-3">Envoyer le commentaire</button>
+                </form>
             </div>
         </div>
     </body>

@@ -6,6 +6,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.annotation.ManagedBean;
@@ -44,6 +45,37 @@ public class CommentDaoImpl extends AbstractDaoImpl implements CommentDao {
         String vSQL = "SELECT * FROM comment WHERE siteId = " + "'" + siteId + "'";
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new CommentMapper());
+    }
+
+    @Override
+    public Comment getSelectedComment(int id) {
+        String vSQL = "SELECT * FROM comment WHERE id='" + id + "'";
+
+        return new JdbcTemplate(getDataSource()).query(vSQL, new CommentMapper()).iterator().next();
+    }
+
+    @Override
+    public void updateComment(int id, String author, String comment) {
+        String vSQL = "UPDATE comment SET author=:author, comment=:comment WHERE id=:id";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("author", author);
+        vParams.addValue("comment", comment);
+        vParams.addValue("id", id);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
+    }
+
+    @Override
+    public void deleteComment(int id) {
+        String vSQL = "DELETE FROM comment WHERE id=" + id;
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("id", id);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
     }
 
     private static final class CommentMapper implements RowMapper<Comment> {

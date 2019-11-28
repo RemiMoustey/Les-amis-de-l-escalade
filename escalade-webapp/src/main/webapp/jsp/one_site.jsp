@@ -15,7 +15,7 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
-            <p class="w-75 text-justify ml-auto mr-auto mb-3">${site.getDescription()}</p>
+            <p class="w-75 text-justify ml-auto mr-auto mb-3"><c:out value="${site.getDescription()}" /></p>
             <table class="site-table table w-75 m-auto">
                 <tr>
                     <th scope="col">
@@ -32,7 +32,7 @@
                     <td scope="col">
                         <ul>
                             <c:forTokens var="sector" items="${site.getSectors()}" delims=",">
-                                <li>${sector}</li>
+                                <li><c:out value="${sector}" /></li>
                             </c:forTokens>
                         </ul>
                     </td>
@@ -107,8 +107,14 @@
                     <c:if test="${!empty allComments}">
                         <c:forEach var="i" begin="0" end="${fn:length(allComments) - 1}" step="1">
                             <div class="one-comment w-75 m-auto pb-5">
-                                <h3>${allComments[i].getAuthor()}</h3>
-                                <p>${allComments[i].getComment()}</p>
+                                <h3><c:out value="${allComments[i].getAuthor()}" /></h3>
+                                <p><c:out value="${allComments[i].getComment()}" /></p>
+                                <c:if test="${sessionScope.adminConnected}">
+                                    <div class="admin-links">
+                                        <a href="/modify_comment?id=${allComments[i].getId()}">Modifier</a><br />
+                                        <a href="/delete_comment?id=${allComments[i].getId()}" onclick='return confirm("Êtes-vous sûr de supprimer ce commentaire ?")'>Supprimer</a>
+                                    </div>
+                                </c:if>
                             </div>
                         </c:forEach>
                     </c:if>

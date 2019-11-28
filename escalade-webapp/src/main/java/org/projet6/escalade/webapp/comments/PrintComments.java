@@ -1,7 +1,9 @@
 package org.projet6.escalade.webapp.comments;
 
 import org.projet6.escalade.consumer.contract.dao.CommentDao;
+import org.projet6.escalade.consumer.contract.dao.SiteDao;
 import org.projet6.escalade.model.bean.comment.Comment;
+import org.projet6.escalade.model.bean.site.Site;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -24,5 +26,14 @@ public class PrintComments {
             allComments.add(it.next());
         }
         request.setAttribute("allComments", allComments);
+    }
+
+    public void getOneCommment(HttpServletRequest request, int id) {
+        ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        CommentDao commentDao = (CommentDao) vApplicationContext.getBean("commentDao");
+        Comment comment =  commentDao.getSelectedComment(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("commentId", comment.getId());
+        request.setAttribute("comment", comment);
     }
 }
