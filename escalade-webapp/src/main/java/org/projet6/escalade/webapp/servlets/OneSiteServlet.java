@@ -1,5 +1,6 @@
 package org.projet6.escalade.webapp.servlets;
 
+import org.projet6.escalade.webapp.comments.PrintComments;
 import org.projet6.escalade.webapp.sites.PrintSites;
 
 import javax.servlet.ServletException;
@@ -17,6 +18,9 @@ public class OneSiteServlet extends HttpServlet {
 
         PrintSites sites = new PrintSites();
         sites.getOneSite(request);
+
+        PrintComments comments = new PrintComments();
+        comments.getComments(request);
 
         this.getServletContext().getRequestDispatcher("/jsp/one_site.jsp").forward(request, response);
     }

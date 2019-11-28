@@ -77,7 +77,58 @@
                         <c:out value="${site.getNumberOfWays()}" />
                     </td>
                 </tr>
+                <tr>
+                    <th scope="col">
+                        Statut
+                    </th>
+                    <td scope="col">
+                        <c:choose>
+                            <c:when test="${site.getOfficial()}">
+                                <span class="green">Site officiel Les Amis de l'escalade</span
+                            </c:when>
+                            <c:otherwise>
+                                <span class="red">Site non officiel</span>
+                            </c:otherwise>
+                        </c:choose>
+                    </td>
+                </tr>
             </table>
+            <c:choose>
+                <c:when test="${sessionScope.adminConnected && !site.getOfficial()}">
+                    <p class="text-center"><a class="link-official green" href="/make_official?id=${site.getId()}">Désigner ce site comme site officiel Les Amis de l'Escalade</a></p>
+                </c:when>
+                <c:when test="${sessionScope.adminConnected && site.getOfficial()}">
+                    <p class="text-center"><a class="link-unofficial red" href="/make_unofficial?id=${site.getId()}">Désigner ce site comme site non officiel Les Amis de l'Escalade</a></p>
+                </c:when>
+            </c:choose>
+            <c:if test="${!empty sessionScope.login}">
+                <h2 class="text-center">Commentaires</h2>
+                <div class="comments">
+                    <c:if test="${!empty allComments}">
+                        <c:forEach var="i" begin="0" end="${fn:length(allComments) - 1}" step="1">
+                            <div class="one-comment w-75 m-auto pb-5">
+                                <h3>${allComments[i].getAuthor()}</h3>
+                                <p>${allComments[i].getComment()}</p>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty allComments}">
+                        <p class="text-center pb-5">Pas de commentaires</p>
+                    </c:if>
+                </div>
+                <h2 class="text-center">Ajouter un commentaire</h2>
+                <div class="form-comment w-75 m-auto">
+                    <form action="/insert_comment?id=${site.getId()}" method="post" >
+                        <label for="author">Auteur<span class="input-required">*</span></label>
+                        <br/>
+                        <input type="text" name="author" id="author" class="for-control mb-3" required />
+                        <br />
+                        <label for="author">Commentaire<span class="input-required">*</span></label>
+                        <textarea name="comment" id="comment" class="form-control"></textarea>
+                        <button type="submit" class="mt-3">Envoyer le commentaire</button>
+                    </form>
+                </div>
+            </c:if>
         </div>
     </body>
 </html>

@@ -2,5 +2,7 @@ C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalad
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\DaoFactory.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\MemberDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\AbstractDaoImpl.java
+C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\CommentDao.java
+C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\CommentDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\SiteDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\MemberDao.java

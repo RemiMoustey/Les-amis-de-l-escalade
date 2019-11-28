@@ -10,7 +10,7 @@
 <html lang="fr">
     <head>
         <%@ include file="header.jsp" %>
-        <title>Inscription validée</title>
+        <title>Déconnexion</title>
     </head>
     <body>
     <%@ include file="/jsp/menu.jsp" %>

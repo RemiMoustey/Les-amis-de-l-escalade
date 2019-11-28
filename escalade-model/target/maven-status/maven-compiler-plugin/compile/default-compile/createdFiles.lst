@@ -2,3 +2,4 @@ org\projet6\escalade\model\bean\member\Member.class
 org\projet6\escalade\model\bean\site\Site.class
 org\projet6\escalade\model\recherche\site\RechercheSite.class
 org\projet6\escalade\model\App.class
+org\projet6\escalade\model\bean\comment\Comment.class

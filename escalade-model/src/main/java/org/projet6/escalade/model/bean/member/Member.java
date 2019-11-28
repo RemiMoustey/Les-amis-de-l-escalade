@@ -9,6 +9,7 @@ public class Member {
     private String address;
     private String postalCode;
     private String town;
+    private Boolean isAdmin;
 
     public Member() {
 
@@ -50,6 +51,10 @@ public class Member {
         return town;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -81,4 +86,6 @@ public class Member {
     public void setTown(String town) {
         this.town = town;
     }
+
+    public void setAdmin(Boolean isAdmin) { this.isAdmin = isAdmin; }
 }

@@ -1,3 +1,11 @@
+.green, .link-official:hover {
+    color: #609974;
+}
+
+.red, .link-unofficial:hover {
+    color: #F00;
+}
+
 .content {
     margin-top: 101px;
 }

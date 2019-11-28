@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +40,8 @@ public class PrintSites {
 
     public void getOneSite(HttpServletRequest request) {
         ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        HttpSession session = request.getSession();
+        session.setAttribute("siteId", request.getParameter("id"));
         SiteDao siteDao = (SiteDao) vApplicationContext.getBean("siteDao");
         Site site =  siteDao.getSearchedSite(request.getParameter("site"));
         request.setAttribute("site", site);

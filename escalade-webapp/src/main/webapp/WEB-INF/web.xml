@@ -103,6 +103,33 @@
     <url-pattern>/insert_site</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>InsertComment</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.InsertCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertComment</servlet-name>
+    <url-pattern>/insert_comment</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MakeOfficial</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.MakeOfficialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeOfficial</servlet-name>
+    <url-pattern>/make_official</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MakeUnofficial</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.MakeUnofficialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeUnofficial</servlet-name>
+    <url-pattern>/make_unofficial</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

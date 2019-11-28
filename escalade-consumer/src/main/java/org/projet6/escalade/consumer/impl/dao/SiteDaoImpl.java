@@ -7,6 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.annotation.ManagedBean;
@@ -20,17 +21,19 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
 
     private Logger LOGGER;
 
-
+    @Override
     public List<Site> getListSites() {
         return new JdbcTemplate(getDataSource()).query("SELECT * FROM site", new SiteMapper());
     }
 
+    @Override
     public List<Site> getListSearchedSites(String search, String field) {
         String vSQL = "SELECT * FROM site WHERE " + field + " LIKE '%" + search + "%'";
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new SiteMapper());
     }
 
+    @Override
     public Site getSearchedSite(String nameSite) {
         String vSQL = "SELECT * FROM site WHERE name = '" + nameSite + "'";
 
@@ -54,6 +57,7 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
         }
     }
 
+    @Override
     public void insertSite(Site pSite) {
         String vSQL = "INSERT INTO site (name, description, sectors, numberOfSectors, length, place, grade, numberOfWays) VALUES (:name, :description, :sectors, :numberOfSectors, :length, :place, :grade, :numberOfWays)";
 
@@ -74,5 +78,17 @@ public class SiteDaoImpl extends AbstractDaoImpl implements SiteDao {
         } catch (DuplicateKeyException vEx) {
             LOGGER.error("Le site existe déjà ! id=" + pSite.getId(), vEx);
         }
+    }
+
+    @Override
+    public void updateOfficial(int id, boolean setOfficial) {
+        String vSQL = "UPDATE site SET isOfficial = :isOfficial WHERE id = :id";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("isOfficial", setOfficial);
+        vParams.addValue("id", id);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
     }
 }

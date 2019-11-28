@@ -110,8 +110,23 @@
                                 <c:out value="${allSites[i].getNumberOfWays()}" />
                             </td>
                         </tr>
+                        <tr>
+                            <th scope="col">
+                                Statut
+                            </th>
+                            <td scope="col">
+                                <c:choose>
+                                    <c:when test="${allSites[i].getOfficial()}">
+                                        <span class="green">Site officiel Les Amis de l'escalade</span
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="red">Site non officiel</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                        </tr>
                     </table>
-                    <p><a href="/one_site?site=${allSites[i].getName()}">En savoir plus</a></p>
+                    <p><a href="/one_site?id=${allSites[i].getId()}&amp;site=${allSites[i].getName()}">En savoir plus</a></p>
                 </div>
                 <c:set var="count" value="${count + 1}" />
                 <c:if test="${count % 3 == 0}" >

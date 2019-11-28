@@ -21,4 +21,13 @@ public class RegisterMember {
         newMember.setTown(request.getParameter("town"));
         memberDao.insertMember(newMember);
     }
+
+    public void getOneMember(HttpServletRequest request, String login, String password) {
+        ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        MemberDao memberDao = (MemberDao) vApplicationContext.getBean("memberDao");
+        Member member = memberDao.getConnectedMember(login, password);
+        if (member.getAdmin()) {
+            request.setAttribute("adminConnected", true);
+        }
+    }
 }

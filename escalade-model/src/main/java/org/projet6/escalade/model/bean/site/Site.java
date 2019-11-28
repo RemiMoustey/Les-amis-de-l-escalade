@@ -1,7 +1,5 @@
 package org.projet6.escalade.model.bean.site;
 
-import java.util.ArrayList;
-
 public class Site {
 
     // ==================== Attributes ====================

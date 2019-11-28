@@ -20,7 +20,4 @@ public abstract class AbstractDaoImpl {
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-
-    @Inject
-    private SiteDao siteDao;
 }

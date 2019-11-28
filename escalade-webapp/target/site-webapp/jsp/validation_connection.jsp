@@ -10,14 +10,14 @@
 <html lang="fr">
 <head>
     <%@ include file="header.jsp" %>
-    <title>Inscription validée</title>
+    <title>Connexion réussie</title>
 </head>
 <body>
-<%@ include file="/jsp/menu.jsp" %>
-<div class="content">
-    <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
-        Vous êtes bien connecté !
+    <%@ include file="/jsp/menu.jsp" %>
+    <div class="content">
+        <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+            Vous êtes bien connecté !
+        </div>
     </div>
-</div>
 </body>
 </html>

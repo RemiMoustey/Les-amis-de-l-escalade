@@ -9,4 +9,5 @@ public interface SiteDao {
     public List<Site> getListSearchedSites(String search, String field);
     public Site getSearchedSite(String nameSite);
     public void insertSite(Site pSite);
+    public void updateOfficial(int id, boolean setOfficial);
 }

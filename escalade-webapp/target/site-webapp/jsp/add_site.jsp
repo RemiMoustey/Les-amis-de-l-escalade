@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Description<span class="input-required">*</span></label><br />
-                    <textarea name="description" id="description" required></textarea>
+                    <textarea name="description" id="description" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="length">Hauteur (en mètres)<span class="input-required">*</span></label>
