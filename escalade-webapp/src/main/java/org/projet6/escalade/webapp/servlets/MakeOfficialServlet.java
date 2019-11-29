@@ -10,9 +10,14 @@ import java.io.IOException;
 
 public class MakeOfficialServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        OfficialSites newOfficialSite = new OfficialSites();
-        newOfficialSite.makeOfficial(Integer.parseInt(request.getParameter("id")), true);
+        if(request.getSession().getAttribute("login") != null) {
+            OfficialSites newOfficialSite = new OfficialSites();
+            newOfficialSite.makeOfficial(Integer.parseInt(request.getParameter("id")), true);
 
-        this.getServletContext().getRequestDispatcher("/jsp/validation_official.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/jsp/validation_official.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/login");
+        }
     }
 }

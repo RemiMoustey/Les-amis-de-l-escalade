@@ -12,13 +12,6 @@ public class ValidationInscriptionServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
-            throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher("/jsp/validation_inscription.jsp").forward(request, response);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RegisterMember newMember = new RegisterMember();
         newMember.registerNewMember(request);

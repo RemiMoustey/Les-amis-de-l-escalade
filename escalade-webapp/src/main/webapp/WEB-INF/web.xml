@@ -157,6 +157,42 @@
     <url-pattern>/delete_comment</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>Dashboard</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dashboard</servlet-name>
+    <url-pattern>/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RegisterTopo</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.RegisterTopoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterTopo</servlet-name>
+    <url-pattern>/register_topo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InsertTopo</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.InsertTopoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InsertTopo</servlet-name>
+    <url-pattern>/insert_topo</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Topos</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ToposServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Topos</servlet-name>
+    <url-pattern>/topos</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

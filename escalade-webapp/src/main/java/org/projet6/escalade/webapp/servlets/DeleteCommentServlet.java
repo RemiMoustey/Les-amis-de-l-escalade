@@ -12,9 +12,14 @@ import java.io.IOException;
 public class DeleteCommentServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DeleteComment deletedComment = new DeleteComment();
-        deletedComment.removeComment(Integer.parseInt(request.getParameter("id")));
+        if(request.getSession().getAttribute("login") != null) {
+            DeleteComment deletedComment = new DeleteComment();
+            deletedComment.removeComment(Integer.parseInt(request.getParameter("id")));
 
-        this.getServletContext().getRequestDispatcher("/jsp/validation_delete.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/jsp/validation_delete.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/login");
+        }
     }
 }

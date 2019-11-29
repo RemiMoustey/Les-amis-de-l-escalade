@@ -8,7 +8,11 @@ public class LoginServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
             throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+        if(request.getSession().getAttribute("login") == null) {
+            this.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/sites");
+        }
     }
 }

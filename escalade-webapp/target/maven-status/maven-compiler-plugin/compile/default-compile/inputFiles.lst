@@ -1,5 +1,6 @@
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\comments\PrintComments.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SitesServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\InsertTopoServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\comments\RegisterComment.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\LogoutServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\MakeOfficialServlet.java
@@ -7,6 +8,7 @@ C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\sites\OfficialSites.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ValidationConnectionServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\sites\RegisterSite.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ToposServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\MakeUnofficialServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\InsertCommentServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\comments\DeleteComment.java
@@ -20,6 +22,9 @@ C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\DeleteCommentServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\InsertSiteServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ResultsServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\RegisterTopoServlet.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\topos\RegisterTopo.java
+C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\DashboardServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\SignInServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\AddSiteServlet.java
 C:\projet6\escalade\escalade\escalade-webapp\src\main\java\org\projet6\escalade\webapp\servlets\ValidationInscriptionServlet.java

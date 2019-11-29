@@ -21,6 +21,10 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
+    <bean id="topoDao" class="org.projet6.escalade.consumer.impl.dao.TopoDaoImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/escalade" />

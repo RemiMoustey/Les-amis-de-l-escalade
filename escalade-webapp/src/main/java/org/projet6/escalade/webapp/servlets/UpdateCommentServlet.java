@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class UpdateCommentServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/jsp/validation_update.jsp").forward(request, response);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RegisterComment updatedComment = new RegisterComment();
         updatedComment.changeComment((int) request.getSession().getAttribute("commentId"), request.getParameter("author"), request.getParameter("comment"));

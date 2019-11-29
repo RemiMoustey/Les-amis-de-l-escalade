@@ -8,6 +8,11 @@ import java.io.IOException;
 
 public class AddSiteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/jsp/add_site.jsp").forward(request, response);
+        if(request.getSession().getAttribute("login") != null) {
+            this.getServletContext().getRequestDispatcher("/jsp/add_site.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/login");
+        }
     }
 }

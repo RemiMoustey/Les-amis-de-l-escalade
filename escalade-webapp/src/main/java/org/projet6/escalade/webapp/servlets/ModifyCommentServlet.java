@@ -11,10 +11,14 @@ import java.io.IOException;
 public class ModifyCommentServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getSession().getAttribute("login") != null) {
+            PrintComments modifiedComment = new PrintComments();
+            modifiedComment.getOneCommment(request, Integer.parseInt(request.getParameter("id")));
 
-        PrintComments modifiedComment = new PrintComments();
-        modifiedComment.getOneCommment(request, Integer.parseInt(request.getParameter("id")));
-
-        this.getServletContext().getRequestDispatcher("/jsp/validation_unofficial.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/jsp/validation_unofficial.jsp").forward(request, response);
+        }
+        else {
+            response.sendRedirect("/login");
+        }
     }
 }

@@ -23,13 +23,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="/signin">S'inscrire</a>
             </li>
-        </c:if>
-        <c:if test="${empty sessionScope.login}">
             <li class="nav-item">
                 <a class="nav-link" href="/login">Se connecter</a>
             </li>
         </c:if>
         <c:if test="${!empty sessionScope.login}">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Espace personnel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/topos">Topos disponibles</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Se déconnecter</a>
             </li>
