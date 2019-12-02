@@ -7,6 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.sql.ResultSet;
@@ -59,5 +60,16 @@ public class AwaitingTopoDaoImpl extends AbstractDaoImpl implements AwaitingTopo
 
             return vAwaitingTopo;
         }
+    }
+
+    @Override
+    public void deleteAwaitingTopo(int idAwaitingTopo) {
+        String vSQL = "DELETE FROM awaiting_topo WHERE id=:id";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("id", idAwaitingTopo);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
     }
 }

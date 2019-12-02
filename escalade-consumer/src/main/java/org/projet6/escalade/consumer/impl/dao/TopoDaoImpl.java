@@ -88,4 +88,15 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
             return vTopo;
         }
     }
+
+    @Override
+    public void updateReservation(int idTopo) {
+        String vSQL = "UPDATE topo SET isReserved=true, isAvailable=false WHERE id=:id";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("id", idTopo);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
+    }
 }

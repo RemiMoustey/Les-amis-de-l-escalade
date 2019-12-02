@@ -11,4 +11,5 @@ public interface TopoDao {
     public List<Topo> getListAvailableTopos(int memberId);
     public void reserveTopo(int id);
     public List<Topo> getListAwaitingTopos(int memberId);
+    public void updateReservation(int idTopo);
 }

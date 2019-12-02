@@ -137,7 +137,11 @@
                                         <c:if test="${awaitingTopos[i].getId() == awaitingDataTopos[j].getTopoId()}">
                                             <c:forEach var="k" begin="0" end="${fn:length(allMembers) - 1}" step="1">
                                                 <c:if test="${awaitingDataTopos[j].getBuyerId() == allMembers[k].getId()}">
-                                                    <p>Réservé par <c:out value="${allMembers[k].getLogin()}"/></p>
+                                                    <p>Réservé par <c:out value="${allMembers[k].getLogin()}"/>
+                                                        <br />
+                                                        <a href="/accept?id=${awaitingTopos[i].getId()}" class="green">Accepter</a>
+                                                        <a href="/decline?id=${awaitingDataTopos[j].getId()}" class="red">Refuser</a>
+                                                    </p>
                                                 </c:if>
                                             </c:forEach>
                                         </c:if>
