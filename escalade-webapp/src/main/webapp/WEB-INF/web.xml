@@ -193,6 +193,15 @@
     <url-pattern>/topos</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>Reserve</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.ReserveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reserve</servlet-name>
+    <url-pattern>/reserve</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

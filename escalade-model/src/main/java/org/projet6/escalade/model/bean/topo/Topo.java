@@ -7,6 +7,15 @@ public class Topo {
     private String place;
     private String date;
     private Integer memberId;
+    private Boolean isAvailable;
+
+    public Topo() {
+
+    }
+
+    public Topo(Integer id) {
+        this.id = id;
+    }
 
     public Integer getId() {
         return id;
@@ -32,6 +41,10 @@ public class Topo {
         return memberId;
     }
 
+    public Boolean getIsAvailable() {
+        return isAvailable;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -54,5 +67,9 @@ public class Topo {
 
     public void setMemberId(Integer memberId) {
         this.memberId = memberId;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }

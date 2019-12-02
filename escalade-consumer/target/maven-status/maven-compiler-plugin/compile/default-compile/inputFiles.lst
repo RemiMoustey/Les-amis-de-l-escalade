@@ -1,8 +1,10 @@
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\SiteDao.java
+C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\AwaitingTopoDao.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\TopoDao.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\DaoFactory.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\MemberDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\AbstractDaoImpl.java
+C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\AwaitingTopoDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\contract\dao\CommentDao.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\CommentDaoImpl.java
 C:\projet6\escalade\escalade\escalade-consumer\src\main\java\org\projet6\escalade\consumer\impl\dao\SiteDaoImpl.java

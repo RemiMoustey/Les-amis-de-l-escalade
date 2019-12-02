@@ -22,117 +22,127 @@
             <c:if test="${!empty sessionScope.login}">
                 <p class="text-center"><a href="/add_site">Ajouter un site</a></p>
             </c:if>
+            <h3 class="h3-search text-center">Sélectionnez votre critère de recherche :</h3>
             <form method="post" action="/results" class="form-search">
-                <label for="search">Rechercher un site</label>
-                <input type="text" name="search" id="search" />
-                <div>
+                <div class="pb-4 search-radio m-auto">
                     <input type="radio" id="name" name="field" value="name" />
                     <label for="name">Nom du site</label><br />
-                    <input type="radio" id="sectors" name="field" value="description" />
+                    <input type="radio" id="sectors" name="field" value="sectors" />
                     <label for="sectors">Secteurs</label><br />
-                    <input type="radio" id="number_of_sectors" name="field" value="number_of_sectors" />
-                    <label for="number_of_sectors">Nombre de secteurs</label><br />
+                    <input type="radio" id="numberOfSectors" name="field" value="numberOfSectors" />
+                    <label for="numberOfSectors">Nombre de secteurs</label><br />
                     <input type="radio" id="length" name="field" value="length" />
                     <label for="length">Hauteur</label><br />
                     <input type="radio" id="place" name="field" value="place" />
                     <label for="place">Lieu</label><br />
                     <input type="radio" id="grade" name="field" value="grade" />
                     <label for="grade">Cotation</label><br />
-                    <input type="radio" id="number_of_ways" name="field" value="number_of_ways" />
-                    <label for="number_of_ways">Nombre de voies</label>
+                    <input type="radio" id="numberOfWays" name="field" value="numberOfWays" />
+                    <label for="numberOfWays">Nombre de voies</label><br />
+                    <label for="search"></label>
+                    <input size="40" type="text" name="search" id="search" placeholder="Effectuez votre recherche" required />
                 </div>
-                <input type="submit" value="Rechercher" />
+                <div class="text-center">
+                    <input type="submit" value="Rechercher" />
+                </div>
             </form>
             <c:set var="count" value="0" scope="page" />
-            <c:forEach var="i" begin="0" end="${fn:length(allSites) - 1}" step="1">
-                <c:if test="${count % 3 == 0}">
-                    <div class="container d-flex flex-column flex-lg-row align-content-around">
-                </c:if>
-                <div class="column-table-link">
-                    <table class="list-sites table">
-                        <tr>
-                            <th scope="col">
-                                Nom
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getName()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Secteurs
-                            </th>
-                            <td scope="col">
-                                <ul>
-                                    <c:forTokens var="sector" items="${allSites[i].getSectors()}" delims=",">
-                                        <li><c:out value="${sector}" /></li>
-                                    </c:forTokens>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Nombre de secteurs
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getNumberOfSectors()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Hauteur
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getLength()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Lieu
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getPlace()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Cotation
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getGrade()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Nombre de voies
-                            </th>
-                            <td scope="col">
-                                <c:out value="${allSites[i].getNumberOfWays()}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">
-                                Statut
-                            </th>
-                            <td scope="col">
-                                <c:choose>
-                                    <c:when test="${allSites[i].getOfficial()}">
-                                        <span class="green">Site officiel Les Amis de l'escalade</span
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span class="red">Site non officiel</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                    </table>
-                    <p><a href="/one_site?id=${allSites[i].getId()}&amp;site=${allSites[i].getName()}">En savoir plus</a></p>
-                </div>
-                <c:set var="count" value="${count + 1}" />
-                <c:if test="${count % 3 == 0}" >
-                    </div>
-                </c:if>
-            </c:forEach>
+            <c:choose>
+                <c:when test="${!empty allSites}">
+                    <c:forEach var="i" begin="0" end="${fn:length(allSites) - 1}" step="1">
+                        <c:if test="${count % 3 == 0}">
+                            <div class="container d-flex flex-column flex-lg-row align-content-around">
+                        </c:if>
+                        <div class="column-table-link">
+                            <table class="list-sites table">
+                                <tr>
+                                    <th scope="col">
+                                        Nom
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getName()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Secteurs
+                                    </th>
+                                    <td scope="col">
+                                        <ul>
+                                            <c:forTokens var="sector" items="${allSites[i].getSectors()}" delims=",">
+                                                <li><c:out value="${sector}" /></li>
+                                            </c:forTokens>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Nombre de secteurs
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getNumberOfSectors()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Hauteur
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getLength()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Lieu
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getPlace()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Cotation
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getGrade()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Nombre de voies
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${allSites[i].getNumberOfWays()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Statut
+                                    </th>
+                                    <td scope="col">
+                                        <c:choose>
+                                            <c:when test="${allSites[i].getOfficial()}">
+                                                <span class="green">Site officiel Les Amis de l'escalade</span
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="red">Site non officiel</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p><a href="/one_site?id=${allSites[i].getId()}&amp;site=${allSites[i].getName()}">En savoir plus</a></p>
+                        </div>
+                        <c:set var="count" value="${count + 1}" />
+                        <c:if test="${count % 3 == 0}" >
+                            </div>
+                        </c:if>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <p class="text-center">Aucun site n'est enregistré.</p>
+                </c:otherwise>
+            </c:choose>
         </div>
     </body>
 </html>

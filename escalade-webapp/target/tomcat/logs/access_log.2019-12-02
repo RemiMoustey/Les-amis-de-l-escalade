@@ -1,0 +1,10 @@
+127.0.0.1 - - [02/Dec/2019:19:39:47 +0100] "GET /login HTTP/1.1" 200 1985 http-bio-8080-exec-1 581
+127.0.0.1 - - [02/Dec/2019:19:39:47 +0100] "GET /login HTTP/1.1" 200 1985 http-bio-8080-exec-4 2
+127.0.0.1 - - [02/Dec/2019:19:39:53 +0100] "POST /validation_connection HTTP/1.1" 200 1565 http-bio-8080-exec-5 847
+127.0.0.1 - - [02/Dec/2019:19:39:54 +0100] "GET /topos?id=1 HTTP/1.1" 200 1730 http-bio-8080-exec-6 346
+127.0.0.1 - - [02/Dec/2019:19:39:55 +0100] "GET /dashboard?id=1 HTTP/1.1" 200 13472 http-bio-8080-exec-7 555
+127.0.0.1 - - [02/Dec/2019:19:40:02 +0100] "GET /logout HTTP/1.1" 200 1433 http-bio-8080-exec-8 65
+127.0.0.1 - - [02/Dec/2019:19:40:02 +0100] "GET /login HTTP/1.1" 200 1985 http-bio-8080-exec-10 3
+127.0.0.1 - - [02/Dec/2019:19:40:06 +0100] "POST /validation_connection HTTP/1.1" 200 1565 http-bio-8080-exec-10 180
+127.0.0.1 - - [02/Dec/2019:19:40:07 +0100] "GET /topos?id=3 HTTP/1.1" 200 4661 http-bio-8080-exec-10 170
+127.0.0.1 - - [02/Dec/2019:19:40:09 +0100] "GET /dashboard?id=3 HTTP/1.1" 200 2236 http-bio-8080-exec-10 321

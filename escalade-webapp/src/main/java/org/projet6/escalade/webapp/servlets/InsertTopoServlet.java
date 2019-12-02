@@ -16,7 +16,7 @@ public class InsertTopoServlet extends HttpServlet {
         RegisterMember member = new RegisterMember();
         member.getOneMember(request, (String) session.getAttribute("login"), (String) session.getAttribute("password"));
         RegisterTopo registerTopo = new RegisterTopo();
-        registerTopo.createNewTopo(request, Integer.parseInt((String)session.getAttribute("membreId")));
+        registerTopo.createNewTopo(request, (int) request.getAttribute("memberId"));
 
         this.getServletContext().getRequestDispatcher("/jsp/validation_topo.jsp").forward(request, response);
     }

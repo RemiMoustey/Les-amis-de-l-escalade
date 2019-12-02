@@ -15,9 +15,23 @@ label[for="search"] {
 }
 
 .form-search {
-    width: 250px;
     margin: auto;
-    text-align: center;
+}
+
+.h3-search, .results-search {
+    font-size: 18px;
+}
+
+.results-search {
+    margin-top: 120px;
+}
+
+.search-radio {
+    width: 318px;
+}
+
+.list-sites {
+    border: 2px solid #000;
 }
 
 .list-sites td, .site-table td {

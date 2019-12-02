@@ -15,7 +15,7 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
-            <p>Résultats de la recherche pour "<c:out value="${search}"/>" :</p>
+            <p class="results-search text-center">Résultats de la recherche pour "<c:out value="${search}"/>" :</p>
             <c:set var="count" value="0" scope="page" />
             <c:if test="${fn:length(sites) > 0}">
                 <c:forEach var="i" begin="0" end="${fn:length(sites) - 1}" step="1">

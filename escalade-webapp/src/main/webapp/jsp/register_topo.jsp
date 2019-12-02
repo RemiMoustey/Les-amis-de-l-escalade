@@ -32,6 +32,10 @@
                     <label for="date">Date de parution<span class="input-required">*</span></label>
                     <input type="date" name="date" id="date" class="form-control" required />
                 </div>
+                <div class="form-group">
+                    <input type="checkbox" name="isAvailable" id="isAvailable" />
+                    <label for="isAvailable">Votre topo est-il disponible pour un prêt ?</label>
+                </div>
                 <button type="submit" class="mb-5">Enregistrer le topo</button>
             </form>
         </div>

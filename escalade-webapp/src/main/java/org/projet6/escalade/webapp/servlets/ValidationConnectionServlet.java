@@ -35,7 +35,7 @@ public class ValidationConnectionServlet extends HttpServlet {
         }
 
         if(request.getAttribute("login") == null) {
-            session.setAttribute("error", "Identifiants incorrects");
+            session.setAttribute("error", "Identifiants inconnus");
             this.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(request, response);
             return;
         }
@@ -43,6 +43,7 @@ public class ValidationConnectionServlet extends HttpServlet {
         RegisterMember connectedMember = new RegisterMember();
         connectedMember.getOneMember(request, (String) request.getAttribute("login"), (String) request.getAttribute("password"));
         session.setAttribute("login", request.getAttribute("login"));
+        session.setAttribute("password", request.getAttribute("password"));
         session.setAttribute("adminConnected", request.getAttribute("adminConnected"));
 
         this.getServletContext().getRequestDispatcher("/jsp/validation_connection.jsp").forward(request, response);

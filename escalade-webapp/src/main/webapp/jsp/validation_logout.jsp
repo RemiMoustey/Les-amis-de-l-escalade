@@ -16,7 +16,7 @@
     <%@ include file="/jsp/menu.jsp" %>
     <div class="content">
         <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
-            Vous êtes bien déconnecté !
+            Vous êtes bien déconnecté.
         </div>
     </div>
     </body>

@@ -17,6 +17,12 @@ public class RegisterTopo {
         newTopo.setDescription(request.getParameter("description"));
         newTopo.setPlace(request.getParameter("place"));
         newTopo.setDate(request.getParameter("date"));
+        if(request.getParameter("isAvailable") == null) {
+            newTopo.setIsAvailable(false);
+        }
+        else {
+            newTopo.setIsAvailable(true);
+        }
         newTopo.setMemberId(memberId);
 
         topoDao.insertTopo(newTopo);

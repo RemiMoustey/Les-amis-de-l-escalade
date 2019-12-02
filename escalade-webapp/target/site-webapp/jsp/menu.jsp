@@ -29,10 +29,10 @@
         </c:if>
         <c:if test="${!empty sessionScope.login}">
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">Espace personnel</a>
+                <a class="nav-link" href="/dashboard?id=<c:out value="${sessionScope.memberId}" />">Espace personnel</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/topos">Topos disponibles</a>
+                <a class="nav-link" href="/topos?id=<c:out value="${sessionScope.memberId}" />">Topos disponibles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout">Se déconnecter</a>

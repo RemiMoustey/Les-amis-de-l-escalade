@@ -27,8 +27,8 @@ public class RegisterMember {
         ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
         MemberDao memberDao = (MemberDao) vApplicationContext.getBean("memberDao");
         Member member = memberDao.getConnectedMember(login, password);
-        HttpSession session = request.getSession();
         request.setAttribute("memberId", member.getId());
+        request.getSession().setAttribute("memberId", member.getId());
         if (member.getAdmin()) {
             request.setAttribute("adminConnected", true);
         }
