@@ -8,6 +8,7 @@ public class Topo {
     private String date;
     private Integer memberId;
     private Boolean isAvailable;
+    private Boolean isReserved;
 
     public Topo() {
 
@@ -45,6 +46,8 @@ public class Topo {
         return isAvailable;
     }
 
+    public Boolean getIsReserved() { return isReserved; }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -72,4 +75,6 @@ public class Topo {
     public void setIsAvailable(Boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
+
+    public void setIsReserved(Boolean isReserved) { this.isReserved = isReserved; }
 }

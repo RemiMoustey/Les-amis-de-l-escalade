@@ -1,4 +1,0 @@
-0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:37 +0100] "GET /login HTTP/1.1" 200 1985 http-bio-8080-exec-1 612
-0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:37 +0100] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 3
-0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:45 +0100] "POST /validation_connection HTTP/1.1" 200 1565 http-bio-8080-exec-4 816
-0:0:0:0:0:0:0:1 - - [02/Dec/2019:21:36:46 +0100] "GET /dashboard?id=1 HTTP/1.1" 200 13472 http-bio-8080-exec-5 565

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+<nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
     <ul class="navbar-nav d-flex align-items-center m-auto">
         <li class=nav-item>
             <a class="navbar-brand" href="#">
@@ -39,4 +39,9 @@
             </li>
         </c:if>
     </ul>
+    <c:if test="${!empty sessionScope.login}">
+        <div class="name-user">
+            Bonjour <c:out value="${sessionScope.login}"/>
+        </div>
+    </c:if>
 </nav>

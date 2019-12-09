@@ -12,9 +12,19 @@
         <%@ include file="header.jsp" %>
         <title>Espace personnel</title>
     </head>
-    <body>t
+    <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
+            <c:if test="${addTopo != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre topo a bien été enregistré !
+                </div>
+            </c:if>
+            <c:if test="${addTopo != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre topo a bien été enregistré !
+                </div>
+            </c:if>
             <h1 class="text-center">Bienvenue dans votre espace personnel, <c:out value="${sessionScope.login}" /></h1>
             <p class="text-center">
                 <a href="/register_topo">Enregistrer un topo</a>
@@ -137,7 +147,10 @@
                                         <c:if test="${awaitingTopos[i].getId() == awaitingDataTopos[j].getTopoId()}">
                                             <c:forEach var="k" begin="0" end="${fn:length(allMembers) - 1}" step="1">
                                                 <c:if test="${awaitingDataTopos[j].getBuyerId() == allMembers[k].getId()}">
-                                                    <p>Réservé par <c:out value="${allMembers[k].getLogin()}"/></p>
+                                                    <p>Réservé par <c:out value="${allMembers[k].getLogin()}"/>
+                                                        <br />
+                                                        <a href="/accept?id=${awaitingTopos[i].getId()}&amp;buyer_id=${allmembers[k].getId()}&amp;member_id=${awaitingDataTopos[j].getMemberId()}" class="green">Accepter</a>
+                                                    </p>
                                                 </c:if>
                                             </c:forEach>
                                         </c:if>

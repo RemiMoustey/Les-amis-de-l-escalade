@@ -15,6 +15,31 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
+            <c:if test="${modifyComment != null && !empty sessionScope.login}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Le commentaire a bien été modifié !
+                </div>
+            </c:if>
+            <c:if test="${addComment != null && !empty sessionScope.login}">
+                <div class="comment-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre commentaire a bien été posté !
+                </div>
+            </c:if>
+            <c:if test="${deleteComment != null && !empty sessionScope.login}">
+                <div class="comment-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Le commentaire a bien été supprimé !
+                </div>
+            </c:if>
+            <c:if test="${makeOfficial != null && !empty sessionScope.login}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Le site est désormais officiel Les amis de l'escalade !
+                </div>
+            </c:if>
+            <c:if test="${makeUnofficial != null && !empty sessionScope.login}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Le site n'est désormais plus officiel Les amis de l'escalade.
+                </div>
+            </c:if>
             <p class="w-75 text-justify ml-auto mr-auto mb-3"><c:out value="${site.getDescription()}" /></p>
             <table class="site-table table w-75 m-auto">
                 <tr>
@@ -111,8 +136,8 @@
                                 <p><c:out value="${allComments[i].getComment()}" /></p>
                                 <c:if test="${sessionScope.adminConnected}">
                                     <div class="admin-links">
-                                        <a href="/modify_comment?id=${allComments[i].getId()}">Modifier</a><br />
-                                        <a href="/delete_comment?id=${allComments[i].getId()}" onclick='return confirm("Êtes-vous sûr de supprimer ce commentaire ?")'>Supprimer</a>
+                                        <a href="/modify_comment?id=${allComments[i].getId()}&amp;site_id=${site.getId()}">Modifier</a><br />
+                                        <a href="/delete_comment?id=${allComments[i].getId()}&amp;?site_id=${site.getId()}" onclick='return confirm("Êtes-vous sûr de supprimer ce commentaire ?")'>Supprimer</a>
                                     </div>
                                 </c:if>
                             </div>

@@ -14,7 +14,7 @@ public class MakeOfficialServlet extends HttpServlet {
             OfficialSites newOfficialSite = new OfficialSites();
             newOfficialSite.makeOfficial(Integer.parseInt(request.getParameter("id")), true);
 
-            this.getServletContext().getRequestDispatcher("/jsp/validation_official.jsp").forward(request, response);
+            response.sendRedirect("/one_site?id=" + request.getSession().getAttribute("siteId") + "&site=" + request.getSession().getAttribute("siteName") + "&make_official=true");
         }
         else {
             response.sendRedirect("/login");

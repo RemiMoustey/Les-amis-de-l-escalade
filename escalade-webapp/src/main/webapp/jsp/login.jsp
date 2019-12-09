@@ -15,21 +15,21 @@
     <body>
         <%@ include file="menu.jsp" %>
         <div class="content">
-                    <h1 class="text-center">Connexion</h1>
+            <h1 class="text-center">Connexion</h1>
 
-                    <c:if test="${!empty sessionScope.error}">
-                        <div class="alert alert-danger w-50 m-auto">
-                            <c:out value="${sessionScope.error}" />
-                        </div>
-                    </c:if>
+            <c:if test="${!empty sessionScope.error}">
+                <div class="alert alert-danger w-50 m-auto">
+                    <c:out value="${sessionScope.error}" />
+                </div>
+            </c:if>
 
-                    <form method="post" action="/validation_connection" class="w-50 m-auto pt-3">
-                        <label for="login">Login : </label>
-                        <input type="text" name="login" id="login" class="form-control" required />
-                        <label for="password" class="mt-1">Mot de passe : </label>
-                        <input type="password" name="password" id="password" class="form-control" required />
-                        <button type="submit" class="mt-3">Se connecter</button>
-                    </form>
+            <form method="post" action="/validation_connection" class="w-50 m-auto pt-3">
+                <label for="login">Login : </label>
+                <input type="text" name="login" id="login" class="form-control" required />
+                <label for="password" class="mt-1">Mot de passe : </label>
+                <input type="password" name="password" id="password" class="form-control" required />
+                <button type="submit" class="mt-3">Se connecter</button>
+            </form>
         </div>
     </body>
 </html>

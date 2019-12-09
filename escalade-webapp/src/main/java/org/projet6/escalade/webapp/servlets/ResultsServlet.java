@@ -19,6 +19,7 @@ public class ResultsServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding( "UTF-8" );
         PrintSites sites = new PrintSites();
         sites.getSearchedSites(request);
 

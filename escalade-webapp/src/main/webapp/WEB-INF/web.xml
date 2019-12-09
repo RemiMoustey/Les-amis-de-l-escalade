@@ -203,15 +203,6 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>Refuse</servlet-name>
-    <servlet-class>org.projet6.escalade.webapp.servlets.RefuseServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Refuse</servlet-name>
-    <url-pattern>/refuse</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
     <servlet-name>Accept</servlet-name>
     <servlet-class>org.projet6.escalade.webapp.servlets.AcceptServlet</servlet-class>
   </servlet>
@@ -224,6 +215,11 @@
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
       <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+    </jsp-property-group>
+    <jsp-property-group>
+      <description>Config. de l'encodage des pages JSP</description>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
     </jsp-property-group>
   </jsp-config>
 

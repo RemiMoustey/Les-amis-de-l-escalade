@@ -16,14 +16,8 @@ import java.util.ArrayList;
 public class ValidationConnectionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
-            throws ServletException, IOException {
-
-        this.getServletContext().getRequestDispatcher("/jsp/validation_connection.jsp").forward(request, response);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding( "UTF-8" );
         ArrayList<Member> registeredMembers = new ShowMembers().getListMembers();
         HttpSession session = request.getSession();
         for(int i = 0; i < registeredMembers.size(); i++) {
@@ -46,6 +40,6 @@ public class ValidationConnectionServlet extends HttpServlet {
         session.setAttribute("password", request.getAttribute("password"));
         session.setAttribute("adminConnected", request.getAttribute("adminConnected"));
 
-        this.getServletContext().getRequestDispatcher("/jsp/validation_connection.jsp").forward(request, response);
+        response.sendRedirect("/sites");
     }
 }

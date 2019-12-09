@@ -10,7 +10,7 @@
 <html lang="fr">
     <head>
         <%@ include file="header.jsp" %>
-        <title>Connexion réussie</title>
+        <title>Réservation acceptée</title>
     </head>
     <body>
         <%@ include file="/jsp/menu.jsp" %>

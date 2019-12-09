@@ -61,15 +61,4 @@ public class AwaitingTopoDaoImpl extends AbstractDaoImpl implements AwaitingTopo
             return vAwaitingTopo;
         }
     }
-
-    @Override
-    public void deleteAwaitingTopo(int idAwaitingTopo) {
-        String vSQL = "DELETE FROM awaiting_topo WHERE id=:id";
-
-        MapSqlParameterSource vParams = new MapSqlParameterSource();
-        vParams.addValue("id", idAwaitingTopo);
-
-        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
-        vJdbcTemplate.update(vSQL, vParams);
-    }
 }

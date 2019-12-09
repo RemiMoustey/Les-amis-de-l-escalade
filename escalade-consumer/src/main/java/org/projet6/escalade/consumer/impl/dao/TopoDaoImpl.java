@@ -35,6 +35,7 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
         vParams.registerSqlType("date", Types.DATE);
         vParams.registerSqlType("memberId", Types.INTEGER);
         vParams.registerSqlType("isAvailable", Types.BOOLEAN);
+        vParams.registerSqlType("isReserved", Types.BOOLEAN);
 
         try {
             vJdbcTemplate.update(vSQL, vParams);
@@ -45,14 +46,14 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
     @Override
     public List<Topo> getListToposMember(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable FROM topo WHERE memberId=" + memberId;
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=" + memberId;
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
     }
 
     @Override
     public List<Topo> getListAvailableTopos(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable FROM topo WHERE isAvailable=true AND memberId!=" + memberId;
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE isAvailable=true AND memberId!=" + memberId;
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
     }
@@ -70,7 +71,7 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
     @Override
     public List<Topo> getListAwaitingTopos(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable FROM topo WHERE memberId=" + memberId + " AND isAwaiting=true";
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=" + memberId + " AND isAwaiting=true AND isReserved=false";
 
         return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
     }
@@ -84,6 +85,7 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
             vTopo.setDate(pRS.getString("date_fr"));
             vTopo.setMemberId(pRS.getInt("memberId"));
             vTopo.setIsAvailable(pRS.getBoolean("isAvailable"));
+            vTopo.setIsReserved(pRS.getBoolean("isReserved"));
 
             return vTopo;
         }

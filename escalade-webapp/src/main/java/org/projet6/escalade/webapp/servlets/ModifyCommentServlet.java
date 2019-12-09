@@ -1,6 +1,7 @@
 package org.projet6.escalade.webapp.servlets;
 
 import org.projet6.escalade.webapp.comments.PrintComments;
+import org.projet6.escalade.webapp.sites.PrintSites;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,7 @@ public class ModifyCommentServlet extends HttpServlet {
             PrintComments modifiedComment = new PrintComments();
             modifiedComment.getOneCommment(request, Integer.parseInt(request.getParameter("id")));
 
-            this.getServletContext().getRequestDispatcher("/jsp/validation_unofficial.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/jsp/modify_comment.jsp").forward(request, response);
         }
         else {
             response.sendRedirect("/login");

@@ -20,6 +20,14 @@ public class DashboardServlet extends HttpServlet {
             ShowMembers members = new ShowMembers();
             request.setAttribute("allMembers", members.getListMembers());
 
+            if(request.getParameter("add_topo") != null) {
+                request.setAttribute("addTopo", request.getParameter("add_topo"));
+            }
+
+            if(request.getParameter("accept") != null) {
+                request.setAttribute("accept", request.getParameter("accept"));
+            }
+
             this.getServletContext().getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
         }
         else {

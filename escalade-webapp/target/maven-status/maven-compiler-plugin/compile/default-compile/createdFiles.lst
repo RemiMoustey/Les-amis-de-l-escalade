@@ -7,10 +7,12 @@ org\projet6\escalade\webapp\servlets\DashboardServlet.class
 org\projet6\escalade\webapp\topos\PrintTopos.class
 org\projet6\escalade\webapp\servlets\ReserveServlet.class
 org\projet6\escalade\webapp\servlets\MakeUnofficialServlet.class
+org\projet6\escalade\webapp\servlets\AcceptServlet.class
 org\projet6\escalade\webapp\servlets\HelloServlet.class
 org\projet6\escalade\webapp\servlets\OneSiteServlet.class
 org\projet6\escalade\webapp\servlets\ToposServlet.class
 org\projet6\escalade\webapp\comments\PrintComments.class
+org\projet6\escalade\webapp\topos\AcceptTopo.class
 org\projet6\escalade\webapp\members\ShowMembers.class
 org\projet6\escalade\webapp\servlets\MakeOfficialServlet.class
 org\projet6\escalade\webapp\servlets\ValidationConnectionServlet.class

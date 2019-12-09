@@ -14,6 +14,10 @@ label[for="search"] {
     font-weight: bold;
 }
 
+nav {
+    display: flex;
+}
+
 .form-search {
     margin: auto;
 }
@@ -54,7 +58,66 @@ label[for="search"] {
     margin: 20px;
 }
 
+.comment-message-success, .topo-message-success {
+    opacity: 0;
+    animation: fadeout 5s;
+    -moz-animation: fadeout 5s; /* Firefox */
+    -webkit-animation: fadeout 5s; /* Safari et Chrome */
+    -o-animation: fadeout 5s; /* Opera */
+}
 
+@keyframes fadeout {
+    0% {
+        opacity:1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
+@-moz-keyframes fadeout { /* sur Firefox */
+    0% {
+        opacity:1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
+@-webkit-keyframes fadeout { /* sur Safari et Chrome */
+    0% {
+        opacity:1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
+@-o-keyframes fadeout { /* sur Opera */
+    0% {
+        opacity:1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
 
 @media all and (max-width: 991px) {
     .fixed-top {
@@ -62,5 +125,17 @@ label[for="search"] {
     }
     .content {
         margin-top: 0px;
+    }
+
+    nav {
+        flex-direction:column;
+    }
+
+    nav .name-user {
+        margin-top: 20px;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
     }
 }

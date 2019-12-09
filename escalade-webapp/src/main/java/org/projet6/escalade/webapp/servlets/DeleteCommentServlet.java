@@ -16,7 +16,7 @@ public class DeleteCommentServlet extends HttpServlet {
             DeleteComment deletedComment = new DeleteComment();
             deletedComment.removeComment(Integer.parseInt(request.getParameter("id")));
 
-            this.getServletContext().getRequestDispatcher("/jsp/validation_delete.jsp").forward(request, response);
+            response.sendRedirect("/one_site?id=" + request.getSession().getAttribute("siteId") + "&site=" + request.getSession().getAttribute("siteName") + "&delete_comment=true");
         }
         else {
             response.sendRedirect("/login");

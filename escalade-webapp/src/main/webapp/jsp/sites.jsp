@@ -18,6 +18,11 @@
     <body>
         <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
+            <c:if test="${addSite != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre site a bien été ajouté !
+                </div>
+            </c:if>
             <h1 class="text-center mt-3">Les sites d'escalade</h1>
             <c:if test="${!empty sessionScope.login}">
                 <p class="text-center"><a href="/add_site">Ajouter un site</a></p>

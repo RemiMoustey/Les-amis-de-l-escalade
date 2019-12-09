@@ -42,6 +42,7 @@ public class PrintSites {
         ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
         HttpSession session = request.getSession();
         session.setAttribute("siteId", request.getParameter("id"));
+        session.setAttribute("siteName", request.getParameter("site"));
         SiteDao siteDao = (SiteDao) vApplicationContext.getBean("siteDao");
         Site site =  siteDao.getSearchedSite(request.getParameter("site"));
         request.setAttribute("site", site);

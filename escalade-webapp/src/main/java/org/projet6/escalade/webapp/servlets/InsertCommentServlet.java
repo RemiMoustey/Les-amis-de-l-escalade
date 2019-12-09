@@ -11,9 +11,10 @@ import java.io.IOException;
 public class InsertCommentServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding( "UTF-8" );
         RegisterComment registerComment = new RegisterComment();
         registerComment.registerNewComment(request);
 
-        this.getServletContext().getRequestDispatcher("/jsp/insert_comment.jsp").forward(request, response);
+        response.sendRedirect("/one_site?id=" + request.getSession().getAttribute("siteId") + "&site=" + request.getSession().getAttribute("siteName") + "&add_comment=true");
     }
 }

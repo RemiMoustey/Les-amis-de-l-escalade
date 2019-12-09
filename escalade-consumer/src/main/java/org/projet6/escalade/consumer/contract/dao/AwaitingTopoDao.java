@@ -8,5 +8,4 @@ public interface AwaitingTopoDao {
     public void insertAwaitingTopo(AwaitingTopo pAwaitingTopo);
     public List<AwaitingTopo> getListDataAwaitingToposMember(int memberId);
     public List<AwaitingTopo> getListDataAwaitingToposBuyer(int buyerId);
-    public void deleteAwaitingTopo(int idAwaitingTopo);
 }

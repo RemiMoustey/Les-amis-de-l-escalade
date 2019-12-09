@@ -14,6 +14,11 @@ public class SitesServlet extends HttpServlet {
             throws ServletException, IOException {
         PrintSites sites = new PrintSites();
         sites.getSites(request);
+
+        if(request.getParameter("add_site") != null) {
+            request.setAttribute("addSite", request.getParameter("add_site"));
+        }
+
         this.getServletContext().getRequestDispatcher("/jsp/sites.jsp").forward(request, response);
     }
 }
