@@ -13,6 +13,6 @@ public class AcceptServlet extends HttpServlet {
         AcceptTopo acceptTopo = new AcceptTopo();
         acceptTopo.acceptTopo(Integer.parseInt(request.getParameter("id")));
 
-        response.sendRedirect("/dashboard?id=" + request.getParameter("member_id") + "&accept=true");
+        response.sendRedirect("/dashboard?id=" + request.getParameter("member_id") + "&buyer_id=" + request.getParameter("buyer_id") + "&accept=true");
     }
 }

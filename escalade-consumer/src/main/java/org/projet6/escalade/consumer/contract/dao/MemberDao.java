@@ -8,4 +8,5 @@ public interface MemberDao {
     public List<Member> getListMembers();
     public void insertMember(Member pMember);
     public Member getConnectedMember(String login, String password);
+    public Member selectOneMemberById(int memberId);
 }

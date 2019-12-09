@@ -19,8 +19,16 @@
 
             <c:set var="count" value="0" scope="page" />
             <c:set var="isUsed" value="false"/>
+            <c:set var="hasAvailableTopos" value="false"/>
+            <c:if test="${!empty availableTopos}">
+                <c:forEach var="i" begin="0" end="${fn:length(availableTopos) - 1}" step="1">
+                    <c:if test="${availableTopos[i].getMemberId().equals(id)}">
+                        <c:set var="hasAvailableTopos" value="true"/>
+                    </c:if>
+                </c:forEach>
+            </c:if>
             <c:choose>
-                <c:when test="${!empty availableTopos}">
+                <c:when test="${hasAvailableTopos == \"true\"}">
                     <c:forEach var="i" begin="0" end="${fn:length(availableTopos) - 1}" step="1">
 
                         <c:set var="isUsed" value="false"/>

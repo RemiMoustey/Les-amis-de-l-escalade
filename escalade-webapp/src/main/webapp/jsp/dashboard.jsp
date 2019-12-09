@@ -20,9 +20,13 @@
                     Votre topo a bien été enregistré !
                 </div>
             </c:if>
-            <c:if test="${accept != null}">
-                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
-                    La demande a bien été acceptée !
+            <c:if test="${accept != null && buyerId != null}">
+                <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    <p>La demande a bien été acceptée !</p>
+                    <p class="mb-0">Email de <c:out value="${buyer.getLogin()}"/> : <c:out value="${buyer.getEmail()}"/></p>
+                    <c:if test="${buyer.phoneNumber != null}">
+                        <p class="mb-0">Téléphone de <c:out value="${buyer.getLogin()}"/> : <c:out value="${buyer.getPhoneNumber()}"/></p>
+                    </c:if>
                 </div>
             </c:if>
             <h1 class="text-center">Bienvenue dans votre espace personnel, <c:out value="${sessionScope.login}" /></h1>
@@ -149,7 +153,7 @@
                                                 <c:if test="${awaitingDataTopos[j].getBuyerId() == allMembers[k].getId()}">
                                                     <p>Réservé par <c:out value="${allMembers[k].getLogin()}"/>
                                                         <br />
-                                                        <a href="/accept?id=${awaitingTopos[i].getId()}&amp;buyer_id=${allmembers[k].getId()}&amp;member_id=${awaitingDataTopos[j].getMemberId()}" class="green" onclick='return confirm("Voulez-vous vraiment accepter cette réservation ?")'>Accepter</a>
+                                                        <a href="/accept?id=${awaitingTopos[i].getId()}&amp;buyer_id=${allMembers[k].getId()}&amp;member_id=${awaitingDataTopos[j].getMemberId()}" class="green" onclick='return confirm("Voulez-vous vraiment accepter cette réservation ?")'>Accepter</a>
                                                     </p>
                                                 </c:if>
                                             </c:forEach>

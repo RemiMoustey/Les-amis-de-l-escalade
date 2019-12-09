@@ -36,4 +36,11 @@ public class RegisterMember {
             request.setAttribute("adminConnected", true);
         }
     }
+
+    public void getMemberById(HttpServletRequest request, int memberId) {
+        ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");
+        MemberDao memberDao = (MemberDao) vApplicationContext.getBean("memberDao");
+        Member member = memberDao.selectOneMemberById(memberId);
+        request.setAttribute("buyer", member);
+    }
 }

@@ -1,5 +1,6 @@
 package org.projet6.escalade.webapp.servlets;
 
+import org.projet6.escalade.webapp.members.RegisterMember;
 import org.projet6.escalade.webapp.members.ShowMembers;
 import org.projet6.escalade.webapp.topos.PrintTopos;
 
@@ -26,6 +27,12 @@ public class DashboardServlet extends HttpServlet {
 
             if(request.getParameter("accept") != null) {
                 request.setAttribute("accept", request.getParameter("accept"));
+            }
+
+            if(request.getParameter("buyer_id") != null) {
+                request.setAttribute("buyerId", request.getParameter("buyer_id"));
+                RegisterMember registerMember = new RegisterMember();
+                registerMember.getMemberById(request, Integer.parseInt(request.getParameter("buyer_id")));
             }
 
             this.getServletContext().getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);

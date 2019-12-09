@@ -54,6 +54,13 @@ public class MemberDaoImpl extends AbstractDaoImpl implements MemberDao {
         return new JdbcTemplate(getDataSource()).query(vSQL, new MemberMapper()).iterator().next();
     }
 
+    @Override
+    public Member selectOneMemberById(int memberId) {
+        String vSQL = "SELECT * FROM member WHERE id=" + memberId;
+
+        return new JdbcTemplate(getDataSource()).query(vSQL, new MemberMapper()).iterator().next();
+    }
+
     private static final class MemberMapper implements RowMapper<Member> {
         public Member mapRow(ResultSet pRS, int pRowNum) throws SQLException {
             Member vMember = new Member(pRS.getInt("id"));
