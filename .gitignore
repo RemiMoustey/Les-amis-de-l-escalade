@@ -1,4 +1,7 @@
 /*-*/target
 /.idea
 /escalade.iml
-/*-*/.classpath
+/*-*/escalade-*.iml
+/*-*/src/main/resources
+/escalade-webapp/.classpath/applicationContext.xml
+/escalade-consumer/.classpath/consumerContext.xml

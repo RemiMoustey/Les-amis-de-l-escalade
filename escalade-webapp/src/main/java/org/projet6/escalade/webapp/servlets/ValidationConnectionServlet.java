@@ -1,9 +1,9 @@
 package org.projet6.escalade.webapp.servlets;
 
-import org.projet6.escalade.consumer.contract.dao.MemberDao;
 import org.projet6.escalade.model.bean.member.Member;
 import org.projet6.escalade.webapp.members.RegisterMember;
 import org.projet6.escalade.webapp.members.ShowMembers;
+import org.projet6.escalade.webapp.password.HashedPassword;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,9 +21,9 @@ public class ValidationConnectionServlet extends HttpServlet {
         ArrayList<Member> registeredMembers = new ShowMembers().getListMembers();
         HttpSession session = request.getSession();
         for(int i = 0; i < registeredMembers.size(); i++) {
-            if (registeredMembers.get(i).getLogin().equals(request.getParameter("login")) && registeredMembers.get(i).getPassword().equals(request.getParameter("password"))) {
+            if (registeredMembers.get(i).getLogin().equals(request.getParameter("login")) && registeredMembers.get(i).getPassword().equals(HashedPassword.getHashedPassword(request.getParameter("password")))) {
                 request.setAttribute("login", request.getParameter("login"));
-                request.setAttribute("password", request.getParameter("password"));
+                request.setAttribute("password", HashedPassword.getHashedPassword(request.getParameter("password")));
                 break;
             }
         }

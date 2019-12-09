@@ -31,5 +31,6 @@ org\projet6\escalade\webapp\servlets\LogoutServlet.class
 org\projet6\escalade\webapp\servlets\ModifyCommentServlet.class
 org\projet6\escalade\webapp\servlets\AddSiteServlet.class
 org\projet6\escalade\webapp\servlets\InsertCommentServlet.class
+org\projet6\escalade\webapp\password\HashedPassword.class
 org\projet6\escalade\webapp\servlets\SignInServlet.class
 org\projet6\escalade\webapp\sites\RegisterSite.class

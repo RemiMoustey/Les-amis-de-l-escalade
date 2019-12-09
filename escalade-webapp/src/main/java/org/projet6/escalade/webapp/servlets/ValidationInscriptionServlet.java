@@ -17,6 +17,6 @@ public class ValidationInscriptionServlet extends HttpServlet {
         RegisterMember newMember = new RegisterMember();
         newMember.registerNewMember(request);
 
-        this.getServletContext().getRequestDispatcher("/jsp/validation_inscription.jsp").forward(request, response);
+        response.sendRedirect("/login?add_member=true");
     }
 }

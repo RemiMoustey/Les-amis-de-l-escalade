@@ -2,11 +2,14 @@ package org.projet6.escalade.webapp.members;
 
 import org.projet6.escalade.consumer.contract.dao.MemberDao;
 import org.projet6.escalade.model.bean.member.Member;
+import org.projet6.escalade.webapp.password.HashedPassword;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class RegisterMember {
     public void registerNewMember(HttpServletRequest request) {
@@ -14,7 +17,7 @@ public class RegisterMember {
         MemberDao memberDao = (MemberDao) vApplicationContext.getBean("memberDao");
         Member newMember = new Member();
         newMember.setLogin(request.getParameter("login"));
-        newMember.setPassword(request.getParameter("password"));
+        newMember.setPassword(HashedPassword.getHashedPassword(request.getParameter("password")));
         newMember.setEmail(request.getParameter("email"));
         newMember.setPhoneNumber(request.getParameter("phoneNumber"));
         newMember.setAddress(request.getParameter("address"));

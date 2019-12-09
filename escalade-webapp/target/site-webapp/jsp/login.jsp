@@ -15,6 +15,11 @@
     <body>
         <%@ include file="menu.jsp" %>
         <div class="content">
+            <c:if test="${addMember != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre inscription a bien été validée !
+                </div>
+            </c:if>
             <h1 class="text-center">Connexion</h1>
 
             <c:if test="${!empty sessionScope.error}">
