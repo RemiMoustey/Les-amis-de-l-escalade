@@ -34,6 +34,7 @@ public class RegisterMember {
         request.getSession().setAttribute("memberId", member.getId());
         if (member.getAdmin()) {
             request.setAttribute("adminConnected", true);
+            request.getSession().setAttribute("adminConnected", true);
         }
     }
 

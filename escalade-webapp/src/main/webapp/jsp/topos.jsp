@@ -17,80 +17,78 @@
         <div class="content">
             <h1 class="text-center">Tous les topos disponibles</h1>
 
-            <c:set var="count" value="0" scope="page" />
+            <c:set var="count" value="${0}" scope="page" />
             <c:set var="isUsed" value="false"/>
             <c:set var="hasAvailableTopos" value="false"/>
             <c:if test="${!empty availableTopos}">
                 <c:forEach var="i" begin="0" end="${fn:length(availableTopos) - 1}" step="1">
-                    <c:if test="${availableTopos[i].getMemberId().equals(id)}">
+                    <c:if test="${!availableTopos[i].getMemberId().equals(id)}">
                         <c:set var="hasAvailableTopos" value="true"/>
                     </c:if>
                 </c:forEach>
             </c:if>
-            <c:choose>
-                <c:when test="${hasAvailableTopos == \"true\"}">
-                    <c:forEach var="i" begin="0" end="${fn:length(availableTopos) - 1}" step="1">
 
-                        <c:set var="isUsed" value="false"/>
-                        <c:if test="${!empty awaitingDataTopos}">
-                            <c:forEach var="j" begin="0" end="${fn:length(awaitingDataTopos) - 1}" step="1">
-                                <c:if test="${awaitingDataTopos[j].getTopoId().equals(availableTopos[i].getId())}">
-                                    <c:set var="isUsed" value="true"/>
-                                </c:if>
-                            </c:forEach>
-                        </c:if>
-                        <c:if test="${count % 3 == 0}">
-                            <div class="container d-flex flex-column flex-lg-row align-content-around">
-                        </c:if>
-                        <c:if test="${isUsed.equals(\"false\")}">
-                            <div class="column-table-link">
-                                <table class="list-sites table">
-                                    <tr>
-                                        <th scope="col">
-                                            Nom
-                                        </th>
-                                        <td scope="col">
-                                            <c:out value="${availableTopos[i].getName()}" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">
-                                            Description
-                                        </th>
-                                        <td scope="col">
-                                            <c:out value="${availableTopos[i].getDescription()}" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">
-                                            Lieu
-                                        </th>
-                                        <td scope="col">
-                                            <c:out value="${availableTopos[i].getPlace()}" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">
-                                            Date de parution
-                                        </th>
-                                        <td scope="col">
-                                            <c:out value="${availableTopos[i].getDate()}" />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <p><a href="/reserve?id=${availableTopos[i].getId()}&amp;memberId=${availableTopos[i].getMemberId()}" onclick='return confirm("Êtes-vous sûr de réserver ce topo ?")'>Demander à réserver ce topo</a></p>
-                            </div>
-                            <c:set var="count" value="${count + 1}" />
-                        </c:if>
-                        <c:if test="${count % 3 == 0}" >
-                            </div>
-                        </c:if>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <p class="text-center">Aucun topo n'est disponible.</p>
-                </c:otherwise>
-            </c:choose>
+            <c:if test="${hasAvailableTopos == \"true\"}">
+                <c:forEach var="i" begin="0" end="${fn:length(availableTopos) - 1}" step="1">
+                    <c:set var="isUsed" value="false"/>
+                    <c:if test="${!empty awaitingDataTopos}">
+                        <c:forEach var="j" begin="0" end="${fn:length(awaitingDataTopos) - 1}" step="1">
+                            <c:if test="${awaitingDataTopos[j].getTopoId().equals(availableTopos[i].getId())}">
+                                <c:set var="isUsed" value="true"/>
+                            </c:if>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${count % 3 == 0}">
+                        <div class="container d-flex flex-column flex-lg-row align-content-around">
+                    </c:if>
+                    <c:if test="${isUsed.equals(\"false\")}">
+                        <div class="column-table-link">
+                            <table class="list-sites table">
+                                <tr>
+                                    <th scope="col">
+                                        Nom
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${availableTopos[i].getName()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Description
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${availableTopos[i].getDescription()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Lieu
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${availableTopos[i].getPlace()}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">
+                                        Date de parution
+                                    </th>
+                                    <td scope="col">
+                                        <c:out value="${availableTopos[i].getDate()}" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <p><a href="/reserve?id=${availableTopos[i].getId()}&amp;member_id=${availableTopos[i].getMemberId()}&amp;buyer_id=${sessionScope.memberId}" onclick='return confirm("Êtes-vous sûr de réserver ce topo ?")'>Demander à réserver ce topo</a></p>
+                        </div>
+                        <c:set var="count" value="${count + 1}" />
+                    </c:if>
+                    <c:if test="${count % 3 == 0 && count != 0}" >
+                        </div>
+                    </c:if>
+                </c:forEach>
+            </c:if>
+            <c:if test="${count == 0}">
+                <p class="text-center m-auto">Aucun topo n'est disponible.</p>
+            </c:if>
         </div>
     </body>
 </html>

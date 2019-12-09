@@ -211,6 +211,24 @@
     <url-pattern>/accept</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>MakeAvailable</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.MakeAvailableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeAvailable</servlet-name>
+    <url-pattern>/make_available</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MakeUnavailable</servlet-name>
+    <servlet-class>org.projet6.escalade.webapp.servlets.MakeUnavailableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeUnavailable</servlet-name>
+    <url-pattern>/make_unavailable</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>

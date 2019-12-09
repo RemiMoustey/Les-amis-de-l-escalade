@@ -16,6 +16,9 @@ public class MakeUnofficialServlet extends HttpServlet {
 
             response.sendRedirect("/one_site?id=" + request.getSession().getAttribute("siteId") + "&site=" + request.getSession().getAttribute("siteName") + "&make_unofficial=true");
         }
+        else if (request.getSession().getAttribute("adminConnected") == null) {
+            this.getServletContext().getRequestDispatcher("/jsp/errorPermission.jsp").forward(request, response);
+        }
         else {
             response.sendRedirect("/login");
         }

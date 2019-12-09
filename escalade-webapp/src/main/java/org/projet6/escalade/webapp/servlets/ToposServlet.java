@@ -10,12 +10,19 @@ import java.io.IOException;
 
 public class ToposServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintTopos availableTopos = new PrintTopos();
-        availableTopos.getAvailableTopos(request, Integer.parseInt(request.getParameter("id")));
+        if(!request.getSession().getAttribute("memberId").toString().equals(request.getParameter("id"))) {
+            this.getServletContext().getRequestDispatcher("/jsp/errorPermission.jsp").forward(request, response);
+        }
+        else if (request.getSession().getAttribute("login") != null) {
+            PrintTopos availableTopos = new PrintTopos();
+            availableTopos.getAvailableTopos(request, Integer.parseInt(request.getParameter("id")));
 
-        availableTopos.getDataAwaitingTopos(request, Integer.parseInt(request.getParameter("id")), "buyer");
+            availableTopos.getDataAwaitingTopos(request, Integer.parseInt(request.getParameter("id")), "buyer");
 
-        request.setAttribute("id", request.getParameter("id"));
-        this.getServletContext().getRequestDispatcher("/jsp/topos.jsp").forward(request, response);
+            request.setAttribute("id", request.getParameter("id"));
+            this.getServletContext().getRequestDispatcher("/jsp/topos.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("/login");
+        }
     }
 }

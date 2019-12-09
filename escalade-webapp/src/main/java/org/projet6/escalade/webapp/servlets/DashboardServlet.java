@@ -12,7 +12,10 @@ import java.io.IOException;
 
 public class DashboardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("login") != null) {
+        if (!request.getSession().getAttribute("memberId").toString().equals(request.getParameter("id"))) {
+            this.getServletContext().getRequestDispatcher("/jsp/errorPermission.jsp").forward(request, response);
+        }
+        else if(request.getSession().getAttribute("login") != null) {
             PrintTopos topos = new PrintTopos();
             topos.getToposMember(request, Integer.parseInt(request.getParameter("id")));
             topos.getAwaitingTopos(request, Integer.parseInt(request.getParameter("id")));
@@ -27,6 +30,14 @@ public class DashboardServlet extends HttpServlet {
 
             if(request.getParameter("accept") != null) {
                 request.setAttribute("accept", request.getParameter("accept"));
+            }
+
+            if(request.getParameter("update_available") != null) {
+                request.setAttribute("updateAvailable", request.getParameter("update_available"));
+            }
+
+            if(request.getParameter("update_unavailable") != null) {
+                request.setAttribute("updateUnavailable", request.getParameter("update_unavailable"));
             }
 
             if(request.getParameter("buyer_id") != null) {

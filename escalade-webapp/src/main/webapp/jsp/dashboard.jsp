@@ -20,11 +20,21 @@
                     Votre topo a bien été enregistré !
                 </div>
             </c:if>
+            <c:if test="${updateAvailable != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre topo est maintenant disponible pour un prêt !
+                </div>
+            </c:if>
+            <c:if test="${updateUnavailable != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre topo n'est plus disponible pour un prêt.
+                </div>
+            </c:if>
             <c:if test="${accept != null && buyerId != null}">
                 <div class="alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
                     <p>La demande a bien été acceptée !</p>
                     <p class="mb-0">Email de <c:out value="${buyer.getLogin()}"/> : <c:out value="${buyer.getEmail()}"/></p>
-                    <c:if test="${buyer.phoneNumber != null}">
+                    <c:if test='${!buyer.phoneNumber.equals("")}'>
                         <p class="mb-0">Téléphone de <c:out value="${buyer.getLogin()}"/> : <c:out value="${buyer.getPhoneNumber()}"/></p>
                     </c:if>
                 </div>
@@ -82,15 +92,20 @@
                                         <td scope="col">
                                             <c:choose>
                                                 <c:when test="${allTopos[i].getIsAvailable()}">
-                                                    <span class="green">Disponible pour un prêt</span
+                                                                <span class="green">Disponible pour un prêt</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p><a href="/make_unavailable?id=${allTopos[i].getId()}" class="red link-unavailable" onclick='return confirm("Voulez-vous vraiment rendre ce topo indisponible pour un prêt ?")'>Rendre ce topo indisponible pour un prêt</a></p>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <span class="red">Non disponible pour un prêt</span>
+                                                                <span class="red">Non disponible pour un prêt</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p><a href="/make_available?id=${allTopos[i].getId()}" class="green link-available" onclick='return confirm("Voulez-vous vraiment rendre ce topo disponible pour un prêt ?")'>Rendre ce topo disponible pour un prêt</a></p>
                                                 </c:otherwise>
                                             </c:choose>
-                                        </td>
-                                    </tr>
-                                </table>
                             </div>
                             <c:set var="count" value="${count + 1}" />
                             <c:if test="${count % 3 == 0}">

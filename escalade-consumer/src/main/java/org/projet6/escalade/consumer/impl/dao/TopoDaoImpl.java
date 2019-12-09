@@ -92,11 +92,38 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
     }
 
     @Override
-    public void updateReservation(int idTopo) {
+    public void updateReservation(int topoId) {
         String vSQL = "UPDATE topo SET isReserved=true, isAvailable=false WHERE id=:id";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
-        vParams.addValue("id", idTopo);
+        vParams.addValue("id", topoId);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
+    }
+
+    @Override
+    public void deleteAwaiting(int topoId) {
+        String vSQL = "DELETE FROM awaiting_topo WHERE topoId=:id";
+
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("id", topoId);
+
+        NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
+        vJdbcTemplate.update(vSQL, vParams);
+    }
+
+    @Override
+    public void updateAvailable(int topoId, boolean isAvailable) {
+        String vSQL;
+        if (isAvailable) {
+            vSQL = "UPDATE topo SET isAvailable=true, isAwaiting=false, isReserved=false WHERE id=:id";
+        }
+        else {
+            vSQL = "UPDATE topo SET isAvailable=false WHERE id=:id";
+        }
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("id", topoId);
 
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource());
         vJdbcTemplate.update(vSQL, vParams);

@@ -69,7 +69,7 @@ public class CommentDaoImpl extends AbstractDaoImpl implements CommentDao {
 
     @Override
     public void deleteComment(int id) {
-        String vSQL = "DELETE FROM comment WHERE id=" + id;
+        String vSQL = "DELETE FROM comment WHERE id=:id";
 
         MapSqlParameterSource vParams = new MapSqlParameterSource();
         vParams.addValue("id", id);

@@ -1,8 +1,8 @@
-.green, .link-official:hover {
+.green, .link-official:hover, .link-available:hover {
     color: #609974;
 }
 
-.red, .link-unofficial:hover {
+.red, .link-unofficial:hover, .link-unavailable:hover {
     color: #F00;
 }
 
