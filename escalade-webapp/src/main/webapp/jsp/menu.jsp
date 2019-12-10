@@ -9,12 +9,12 @@
 <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
     <ul class="navbar-nav d-flex align-items-center m-auto">
         <li class=nav-item>
-            <a class="navbar-brand" href="#">
-                <img src="../img/logo.png" alt="Logo de l'association Les amis de l'escalade" />
+            <a class="navbar-brand" href="/index">
+                <img src="./img/logo.png" alt="Logo de l'association Les amis de l'escalade" />
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Accueil</a>
+            <a class="nav-link" href="/index">Accueil</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/sites">Sites d'escalade</a>

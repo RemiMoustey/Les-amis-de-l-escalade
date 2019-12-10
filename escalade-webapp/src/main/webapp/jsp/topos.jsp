@@ -15,6 +15,11 @@
     <body>
     <%@ include file="/jsp/menu.jsp" %>
         <div class="content">
+            <c:if test="${reserve != null}">
+                <div class="topo-message-success alert alert-success mt-5 w-50 ml-auto mr-auto text-center">
+                    Votre réservation a bien été enregistrée !
+                </div>
+            </c:if>
             <h1 class="text-center">Tous les topos disponibles</h1>
 
             <c:set var="count" value="${0}" scope="page" />

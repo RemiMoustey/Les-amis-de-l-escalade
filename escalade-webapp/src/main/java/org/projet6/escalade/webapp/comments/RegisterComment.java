@@ -7,7 +7,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
+/**
+ * Acts on the request : take the DAO bean and call the method which do the SQL request to insert a new comment or modify a comment
+ */
 public class RegisterComment {
     public void registerNewComment(HttpServletRequest request) {
         ApplicationContext vApplicationContext = new ClassPathXmlApplicationContext("classpath:/org.projet6.escalade.webapp/applicationContext.xml");

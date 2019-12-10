@@ -21,7 +21,7 @@ public class ReserveServlet extends HttpServlet {
             topo.updateAvailableTopo(request.getParameter("id"));
             topo.createAwaitingTopo(Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("member_id")), (int) request.getSession().getAttribute("memberId"));
 
-            this.getServletContext().getRequestDispatcher("/jsp/reserve.jsp").forward(request, response);
+            response.sendRedirect("/topos?id=" + request.getSession().getAttribute("memberId") + "&reserve=true");
         }
         else {
             response.sendRedirect("/login");

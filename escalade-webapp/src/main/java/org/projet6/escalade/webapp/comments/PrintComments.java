@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Acts on the request : take the DAO bean and call the method which do the SQL request to catch the comments related to a site or one comment
+ */
 public class PrintComments {
 
     public void getComments(HttpServletRequest request) {

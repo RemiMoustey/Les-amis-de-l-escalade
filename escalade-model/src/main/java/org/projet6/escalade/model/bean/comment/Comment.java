@@ -1,7 +1,10 @@
 package org.projet6.escalade.model.bean.comment;
 
+import java.sql.Date;
+
 public class Comment {
     private Integer id;
+    private Date date;
     private String author;
     private String comment;
     private Integer siteId;
@@ -18,6 +21,10 @@ public class Comment {
         return id;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -32,6 +39,10 @@ public class Comment {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setAuthor(String author) {

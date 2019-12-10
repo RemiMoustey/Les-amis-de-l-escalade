@@ -9,6 +9,10 @@ public class HelloServlet extends HttpServlet {
                       HttpServletResponse response)
             throws ServletException, IOException {
 
+        if(request.getParameter("logout") != null) {
+            request.setAttribute("logout", request.getParameter("logout"));
+        }
+
         this.getServletContext().getRequestDispatcher("/jsp/index.jsp").forward(request, response);
     }
 }

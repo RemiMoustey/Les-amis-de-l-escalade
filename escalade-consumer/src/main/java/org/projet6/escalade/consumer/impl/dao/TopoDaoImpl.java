@@ -2,18 +2,14 @@ package org.projet6.escalade.consumer.impl.dao;
 
 import org.apache.logging.log4j.Logger;
 import org.projet6.escalade.consumer.contract.dao.TopoDao;
+import org.projet6.escalade.consumer.impl.rowmapper.TopoMapper;
 import org.projet6.escalade.model.bean.topo.Topo;
-import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.annotation.ManagedBean;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Types;
 import java.util.List;
 
@@ -46,16 +42,22 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
     @Override
     public List<Topo> getListToposMember(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=" + memberId;
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=:memberId";
 
-        return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("memberId", memberId);
+
+        return new NamedParameterJdbcTemplate(getDataSource()).query(vSQL, vParams, new TopoMapper());
     }
 
     @Override
     public List<Topo> getListAvailableTopos(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE isAvailable=true AND memberId!=" + memberId;
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE isAvailable=true AND memberId!=:memberId";
 
-        return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("memberId", memberId);
+
+        return new NamedParameterJdbcTemplate(getDataSource()).query(vSQL, vParams, new TopoMapper());
     }
 
     @Override
@@ -71,24 +73,12 @@ public class TopoDaoImpl extends AbstractDaoImpl implements TopoDao {
 
     @Override
     public List<Topo> getListAwaitingTopos(int memberId) {
-        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=" + memberId + " AND isAwaiting=true AND isReserved=false";
+        String vSQL = "SELECT id, name, description, place, DATE_FORMAT(date, \'%d/%m/%Y\') AS date_fr, memberId, isAvailable, isReserved FROM topo WHERE memberId=:memberId AND isAwaiting=true AND isReserved=false";
 
-        return new JdbcTemplate(getDataSource()).query(vSQL, new TopoMapper());
-    }
+        MapSqlParameterSource vParams = new MapSqlParameterSource();
+        vParams.addValue("memberId", memberId);
 
-    private static final class TopoMapper implements RowMapper<Topo> {
-        public Topo mapRow(ResultSet pRS, int pRowNum) throws SQLException {
-            Topo vTopo = new Topo(pRS.getInt("id"));
-            vTopo.setName(pRS.getString("name"));
-            vTopo.setDescription(pRS.getString("description"));
-            vTopo.setPlace(pRS.getString("place"));
-            vTopo.setDate(pRS.getString("date_fr"));
-            vTopo.setMemberId(pRS.getInt("memberId"));
-            vTopo.setIsAvailable(pRS.getBoolean("isAvailable"));
-            vTopo.setIsReserved(pRS.getBoolean("isReserved"));
-
-            return vTopo;
-        }
+        return new NamedParameterJdbcTemplate(getDataSource()).query(vSQL, vParams, new TopoMapper());
     }
 
     @Override

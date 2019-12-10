@@ -10,6 +10,11 @@
     margin-top: 101px;
 }
 
+.image-home img {
+    max-width: 100%;
+    height: auto;
+}
+
 label[for="search"] {
     font-weight: bold;
 }

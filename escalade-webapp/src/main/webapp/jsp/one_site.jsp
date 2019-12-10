@@ -120,10 +120,10 @@
             </table>
             <c:choose>
                 <c:when test="${sessionScope.adminConnected && !site.getOfficial()}">
-                    <p class="text-center"><a class="link-official green" href="/make_official?id=${site.getId()}">Désigner ce site comme site officiel Les Amis de l'Escalade</a></p>
+                    <p class="text-center"><a class="link-official green" href="/make_official?id=${site.getId()}" onclick='return confirm("Êtes-vous sûr de désigner ce site comme officiel ?")'>Désigner ce site comme site officiel Les Amis de l'Escalade</a></p>
                 </c:when>
                 <c:when test="${sessionScope.adminConnected && site.getOfficial()}">
-                    <p class="text-center"><a class="link-unofficial red" href="/make_unofficial?id=${site.getId()}">Désigner ce site comme site non officiel Les Amis de l'Escalade</a></p>
+                    <p class="text-center"><a class="link-unofficial red" href="/make_unofficial?id=${site.getId()}" onclick='return confirm("Êtes-vous sûr de désigner ce site comme non officiel ?")'>Désigner ce site comme site non officiel Les Amis de l'Escalade</a></p>
                 </c:when>
             </c:choose>
             <c:if test="${!empty sessionScope.login}">

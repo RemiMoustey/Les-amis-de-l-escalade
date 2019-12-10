@@ -15,6 +15,6 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.invalidate();
 
-        this.getServletContext().getRequestDispatcher("/jsp/validation_logout.jsp").forward(request, response);
+        response.sendRedirect("/index?logout=true");
     }
 }

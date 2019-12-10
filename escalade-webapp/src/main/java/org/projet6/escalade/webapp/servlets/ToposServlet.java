@@ -20,6 +20,11 @@ public class ToposServlet extends HttpServlet {
             availableTopos.getDataAwaitingTopos(request, Integer.parseInt(request.getParameter("id")), "buyer");
 
             request.setAttribute("id", request.getParameter("id"));
+
+            if(request.getParameter("reserve") != null) {
+                request.setAttribute("reserve", request.getParameter("reserve"));
+            }
+
             this.getServletContext().getRequestDispatcher("/jsp/topos.jsp").forward(request, response);
         } else {
             response.sendRedirect("/login");
