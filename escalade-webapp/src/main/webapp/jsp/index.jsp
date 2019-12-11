@@ -26,7 +26,7 @@
             <p>La porte est ouverte à tous les passionnés d'escalade de France ! Venez découvrir où vous pouvez relever des défis, armés de vos points d'ancrage.</p>
             <p>Vous pouvez retrouver <a href="/sites">les différents sites</a> que nous proposons. Si vous êtes intéressés et que vous souhaitez rejoindre notre communauté de grimpeurs, <a href="/login">inscrivez-vous</a> !</p>
             <p>Bonne visite !</p>
-            <p class="image-home"><img src="./img/accueil.jpg" alt="Homme levant les bras au bord d'une falaise avec un point de vue sur une chaîne montagneuse" /></p>
+            <p class="image-home"><img src="./img/home.jpg" alt="Homme levant les bras au bord d'une falaise avec un point de vue sur une chaîne montagneuse" /></p>
         </div>
     </body>
 </html>
